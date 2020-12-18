@@ -1,8 +1,12 @@
 import React from 'react';
 import './App.css';
 
-function App() {
-  return (
+interface Props { 
+  text: string
+}
+
+export const App: React.FC = ({ }) => {
+   return (
     <div className="App">
       Hello world
     </div>
