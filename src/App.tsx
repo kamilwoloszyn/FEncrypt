@@ -10,8 +10,8 @@ interface ContainerOption {
 
 
 const Container = styled.div<ContainerOption>`
-display:${(ContainerOption) => ContainerOption.DisplayGrid ? 'grid' : 'block'};
-margin: ${(ContainerOption) => ContainerOption.HasMargin ? ContainerOption.DefaultMargin:'0'}px;
+display:${({DisplayGrid}) => DisplayGrid ? 'grid' : 'block'};
+margin: ${({HasMargin,DefaultMargin}) => HasMargin ? DefaultMargin:'0'}px;
 `
 
 export const App: React.FC = (ContainerOption) => {
