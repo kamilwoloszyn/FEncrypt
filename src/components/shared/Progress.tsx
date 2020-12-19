@@ -2,7 +2,7 @@ import React from "react";
 import * as ReactDOM from "react-dom";
 
 interface Props { 
-  text:string
+  active:number
 }
 
 export const Progress: React.FC<Props> = ({ }) => {
