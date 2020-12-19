@@ -1,15 +1,27 @@
 import React from 'react';
 import './App.css';
-
-interface Props { 
-  text: string
+import styled from 'styled-components';
+import { Banner } from './components/shared/Banner'
+interface ContainerOption { 
+  DisplayGrid: boolean;
+  HasMargin: boolean;
+  DefaultMargin?: number;
 }
 
-export const App: React.FC = ({ }) => {
-   return (
-    <div className="App">
-      Hello world
-    </div>
+
+const Container = styled.div<ContainerOption>`
+display:${(ContainerOption) => ContainerOption.DisplayGrid ? 'grid' : 'block'};
+margin: ${(ContainerOption) => ContainerOption.HasMargin ? ContainerOption.DefaultMargin:'0'}px;
+`
+
+export const App: React.FC = (ContainerOption) => {
+  return (
+     <Container DisplayGrid={true} HasMargin={false}>
+      <div>
+        <Banner />
+      </div>
+     </Container>
+
   );
 }
 
