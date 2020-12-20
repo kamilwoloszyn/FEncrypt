@@ -2,7 +2,7 @@ import React from "react";
 import * as ReactDOM from "react-dom";
 
 interface Props { 
-  active:number
+  step :number
 }
 
 export const Progress: React.FC<Props> = ({ }) => {

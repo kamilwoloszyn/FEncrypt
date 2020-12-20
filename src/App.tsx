@@ -18,7 +18,7 @@ export const App: React.FC = (ContainerOption) => {
   return (
      <Container DisplayGrid={true} HasMargin={false}>
       <div>
-        <Banner />
+        <Banner ShowBanner={true}/>
       </div>
      </Container>
 

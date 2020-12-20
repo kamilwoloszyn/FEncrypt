@@ -28,6 +28,5 @@ export const Banner: React.FC<Props>  = (Props) => {
     <BannerWrapper Show={Props.ShowBanner}>
       Hello From Banner
     </BannerWrapper>
-     
   )
 }
