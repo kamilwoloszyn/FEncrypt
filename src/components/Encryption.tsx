@@ -14,7 +14,7 @@ interface Props {
 export const Encryption: React.FC<Props> = (Props)=> {
   if (Props.Active) {
     return (
-      <EncryptionWrapper > 
+      <EncryptionWrapper Show={true} > 
           <h1> Hello from Encryption module</h1>
         </EncryptionWrapper>
       )
