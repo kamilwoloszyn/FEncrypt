@@ -3,19 +3,28 @@ import ReactDOM from "react-dom";
 import styled from 'styled-components';
 
 const EncryptionWrapper = styled.div<Props>`
-
-
+display:${({ Show }) => Show ? 'block':'none'}
 `
 
 interface Props {
-  text: string 
+  Active: boolean;
+  Show: boolean
 }
 
-export const Encryption: React.FC<Props> = ({})=> {
-  return (
-    <EncryptionWrapper> 
-      <h1> Hello from Encryption module</h1>
-    </EncryptionWrapper>
-  )
+export const Encryption: React.FC<Props> = ({Active})=> {
+  if (Active) {
+      return (
+        <EncryptionWrapper> 
+          <h1> Hello from Encryption module</h1>
+        </EncryptionWrapper>
+      )
+  } else { 
+    return (
+      <div>
+        Module Inactive
+      </div>
+    )
+  }
+ 
 } 
 
