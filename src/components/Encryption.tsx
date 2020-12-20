@@ -11,10 +11,10 @@ interface Props {
   Show: boolean
 }
 
-export const Encryption: React.FC<Props> = ({Active})=> {
-  if (Active) {
-      return (
-        <EncryptionWrapper> 
+export const Encryption: React.FC<Props> = (Props)=> {
+  if (Props.Active) {
+    return (
+      <EncryptionWrapper > 
           <h1> Hello from Encryption module</h1>
         </EncryptionWrapper>
       )

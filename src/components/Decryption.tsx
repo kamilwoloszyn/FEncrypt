@@ -12,8 +12,8 @@ interface Props {
 }
 
 
-export const Decryption: React.FC<Props> = ({ Active }) => {
-  if (Active) {
+export const Decryption: React.FC<Props> = ( Props ) => {
+  if (Props.Active) {
      return (
     <DecryptionWrapper Show={true}>
       <h1> Decryption</h1>

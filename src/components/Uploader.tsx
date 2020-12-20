@@ -10,7 +10,7 @@ const UploadWrapper = styled.div<Props>`
   
 `
 
-export const Uploader: React.FC<Props> = ({}) => {
+export const Uploader: React.FC<Props> = (Props) => {
   return (
     <UploadWrapper>
       <div>
