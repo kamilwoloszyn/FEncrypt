@@ -8,21 +8,27 @@ interface Props {
   Step: number;
 }
 
-const ProgressWrapper = styled.div<Props>`
+interface ProgressWrapperProps {
+  Show:boolean
+}
+
+const ProgressWrapper = styled.div<ProgressWrapperProps>`
 display:${({ Show })=> Show ?'block':'none'}
 `
 
 export const Progress: React.FC<Props> = (Props) => {
   if (Props.Active) { 
     return (
-    <h1> Hello from Progress module</h1>
+      <ProgressWrapper Show={Props.Show}>
+        <h1> Hello from Progress module</h1>
+      </ProgressWrapper>
+    
   )
   } else { 
     return (
       <h1> Module inactive</h1>
     )
   }
-  
 }
 
 

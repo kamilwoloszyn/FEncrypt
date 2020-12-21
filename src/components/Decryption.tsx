@@ -3,9 +3,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
-const DecryptionWrapper = styled.div<Props>`
+const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
 display:${({Show})=> Show? 'block':'none'}
 `
+interface DecryptionWrapperProps {
+  Show: boolean
+}
+
 interface Props {
   Active: boolean;
   Show: boolean;
@@ -15,8 +19,11 @@ interface Props {
 export const Decryption: React.FC<Props> = ( Props ) => {
   if (Props.Active) {
      return (
-    <DecryptionWrapper Show={true}>
-      <h1> Decryption</h1>
+       <DecryptionWrapper Show={Props.Show}>
+         <div>
+           <h1> Decryption</h1>
+         </div>
+      
       <form>
         <input type="file" />
         <input type="password" />

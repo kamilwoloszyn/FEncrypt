@@ -7,7 +7,7 @@ interface BackgroundOption {
   BackgroundHref: string;
 }
 
-interface WrapperOption { 
+interface BannerWrapperProps { 
   Show: boolean; 
 }
 
@@ -15,7 +15,7 @@ interface Props {
   ShowBanner: boolean 
 }
 
-const BannerWrapper = styled.div<WrapperOption>`
+const BannerWrapper = styled.div<BannerWrapperProps>`
 display: ${({Show}) => Show ? 'block': 'none'};
 `
 

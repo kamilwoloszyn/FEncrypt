@@ -7,15 +7,19 @@ interface Props {
   Show: boolean;
   Text:string
 }
+
+interface UploadWrapperProps {
+  Show: boolean
+}
   
-const UploadWrapper = styled.div<Props>`
+const UploadWrapper = styled.div<UploadWrapperProps>`
   display: ${({ Show }) => Show ? 'block':'none'}
 `
 
 export const Uploader: React.FC<Props> = (Props) => {
   if (Props.Active) {
     return (
-      <UploadWrapper Show={true}>
+      <UploadWrapper Show={Props.Show}>
         <div>
           <h1> Select File to upload</h1>
         </div>

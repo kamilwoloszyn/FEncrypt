@@ -5,6 +5,7 @@ interface Props {
   Active: boolean;
   Show: boolean;
 }
+
 export const Send: React.FC<Props> = (Props) => {
   if (Props.Active) {
     return (
