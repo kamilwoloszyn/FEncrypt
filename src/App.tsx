@@ -7,7 +7,8 @@ import { Uploader } from './components/Uploader';
 import { Encryption } from './components/Encryption';
 import { Decryption } from './components/Decryption';
 import { Send } from './components/Send';
-
+import { Col, Row } from './styles/layout/layout'
+  
 interface ContainerOption { 
   DisplayGrid: boolean;
   HasMargin: boolean;
@@ -23,12 +24,15 @@ margin: ${({HasMargin,DefaultMargin}) => HasMargin ? DefaultMargin:'0'}px;
 export const App: React.FC = (ContainerOption) => {
   return (
      <Container DisplayGrid={true} HasMargin={false}>
-      <div>
-        <Banner ShowBanner={true}/>
-      </div>
-      <div>
-      
-      </div>
+      <Row>
+        <Col md={12}>
+          <Banner ShowBanner={true} />
+        </Col>
+    
+      </Row>
+      <Row>
+
+      </Row>
      </Container>
 
   );
