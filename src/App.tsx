@@ -7,8 +7,9 @@ import { Uploader } from './components/Uploader';
 import { Encryption } from './components/Encryption';
 import { Decryption } from './components/Decryption';
 import { Send } from './components/Send';
-import { Col, Row } from './styles/layout/layout'
-  
+import { Col, Row } from './styles/layout/layout';
+import { OptionButton} from './styles/buttons';
+
 interface ContainerOption { 
   DisplayGrid: boolean;
   HasMargin: boolean;
@@ -21,6 +22,7 @@ display:${({DisplayGrid}) => DisplayGrid ? 'grid' : 'block'};
 margin: ${({HasMargin,DefaultMargin}) => HasMargin ? DefaultMargin:'0'}px;
 `
 
+
 export const App: React.FC = (ContainerOption) => {
   return (
      <Container DisplayGrid={true} HasMargin={false}>
@@ -28,10 +30,18 @@ export const App: React.FC = (ContainerOption) => {
         <Col md={12}>
           <Banner ShowBanner={true} />
         </Col>
-    
       </Row>
       <Row>
-
+        <Row>
+          <Col md={12}>
+            <h1>Encrypt or Decrypt ?</h1>
+          </Col>
+        </Row>
+        <Row>
+          <OptionButton type="button" customColor={"#fff"} hoverColor={"#cdef531"}>Encrypt </OptionButton>
+          <OptionButton type="button" customColor={"#000"} hoverColor={"#cdef531"}>Decrypt </OptionButton>
+        </Row>
+        
       </Row>
      </Container>
 
