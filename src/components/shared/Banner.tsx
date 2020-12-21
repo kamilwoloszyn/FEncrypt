@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface BackgroundOption { 
-  ExtendedWidth: boolean;
+interface BackgroundInterface { 
   ContainImage: boolean;
-  BackgroundHref: string;
+  BackgroundHref?: string;
 }
 
 interface BannerWrapperProps { 
   Show: boolean; 
+  ExtendedWidth: boolean;
 }
 
 interface Props { 
@@ -16,17 +16,21 @@ interface Props {
 }
 
 const BannerWrapper = styled.div<BannerWrapperProps>`
-display: ${({Show}) => Show ? 'block': 'none'};
+display: ${({ Show }) => Show ? 'block' : 'none'};
+${({ ExtendedWidth }) => ExtendedWidth ? 'width: 100%;' : ''}
 `
 
-const Background = styled.div<BackgroundOption>`
-${({ ExtendedWidth }) => ExtendedWidth ? 'width: 100%;' : ''}
+const Background = styled.div<BackgroundInterface>`
+
 background-image: ${({ ContainImage, BackgroundHref }) => ContainImage ? `url(${BackgroundHref})`: '#ffff'}
 `
 export const Banner: React.FC<Props>  = (Props) => { 
   return ( 
-    <BannerWrapper Show={Props.ShowBanner}>
+    <BannerWrapper Show={Props.ShowBanner} ExtendedWidth={true}>
+      <Background ContainImage={false}> 
       Hello From Banner
+      </Background>
+     
     </BannerWrapper>
   )
 }

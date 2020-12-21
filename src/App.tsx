@@ -1,7 +1,13 @@
 import React from 'react';
 import './App.css';
 import styled from 'styled-components';
-import { Banner } from './components/shared/Banner'
+import { Banner } from './components/shared/Banner';
+import { Progress } from './components/shared/Progress';
+import { Uploader } from './components/Uploader';
+import { Encryption } from './components/Encryption';
+import { Decryption } from './components/Decryption';
+import { Send } from './components/Send';
+
 interface ContainerOption { 
   DisplayGrid: boolean;
   HasMargin: boolean;
@@ -19,6 +25,9 @@ export const App: React.FC = (ContainerOption) => {
      <Container DisplayGrid={true} HasMargin={false}>
       <div>
         <Banner ShowBanner={true}/>
+      </div>
+      <div>
+
       </div>
      </Container>
 
