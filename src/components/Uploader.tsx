@@ -21,7 +21,7 @@ export const Uploader: React.FC<Props> = (Props) => {
         </div>
         <div>
           <input type="file"></input>
-          <input type="button" >Next</input>
+          <input type="button">Next</input>
         </div>
       </UploadWrapper>
     )
