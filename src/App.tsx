@@ -22,7 +22,6 @@ display:${({DisplayGrid}) => DisplayGrid ? 'grid' : 'block'};
 margin: ${({HasMargin,DefaultMargin}) => HasMargin ? DefaultMargin:'0'}px;
 `
 
-
 export const App: React.FC = (ContainerOption) => {
   return (
      <Container DisplayGrid={true} HasMargin={false}>
@@ -38,8 +37,8 @@ export const App: React.FC = (ContainerOption) => {
           </Col>
         </Row>
         <Row>
-          <OptionButton type="button" customColor={"#fff"} hoverColor={"#cdef531"}>Encrypt </OptionButton>
-          <OptionButton type="button" customColor={"#000"} hoverColor={"#cdef531"}>Decrypt </OptionButton>
+          <OptionButton type="button" customColor={"#fff"} hoverColor={"#7a2bab"} borderColor={"#7a2aab"}>Encrypt </OptionButton>
+          <OptionButton type="button" customColor={"#fff"} hoverColor={"#7a2bab"}>Decrypt </OptionButton>
         </Row>
         
       </Row>

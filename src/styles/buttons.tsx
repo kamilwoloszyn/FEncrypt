@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface Props {
-  customColor: string;
-  hoverColor: string;
+  customColor?: string;
+  hoverColor?: string;
+  borderColor?: string;
 }
 
 const OptionButton = styled.button<Props>`
@@ -12,11 +13,13 @@ width:15em;
 &:hover{
   cursor:pointer;
 }
-border:none;
 background-color: ${({ customColor }) => customColor ? customColor : '#fff'};
 &:hover { 
   background-color: ${({ hoverColor }) => hoverColor ? hoverColor: '#fff' }
 }
+border-radius:3px;
+border:3px solid ${({ borderColor }) => borderColor ? borderColor : '#fff'};
+transition: all ease-out .2s;
 `
 
 export { 
