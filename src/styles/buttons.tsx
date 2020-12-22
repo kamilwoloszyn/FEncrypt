@@ -9,6 +9,7 @@ interface Props {
 
 const OptionButton = styled.button<Props>`
 padding:20px;
+margin:1em;
 width:15em;
 &:hover{
   cursor:pointer;
