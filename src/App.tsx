@@ -7,8 +7,6 @@ import { Encryption } from './components/Encryption';
 import { Decryption } from './components/Decryption';
 import { Send } from './components/Send';
 import { Col, Row,Container } from './styles/layout/layout';
-import { OptionButton} from './styles/buttons';
-import { AppRouter } from './router/router'
 import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
 
 export const App: React.FC = (ContainerOption) => {
