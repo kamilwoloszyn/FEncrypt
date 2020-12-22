@@ -37,8 +37,8 @@ export const App: React.FC = (ContainerOption) => {
           </Col>
         </Row>
         <Row>
-          <OptionButton type="button" customColor={"#fff"} hoverColor={"#7a2bab"} borderColor={"#7a2aab"}>Encrypt </OptionButton>
-          <OptionButton type="button" customColor={"#fff"} hoverColor={"#7a2bab"}>Decrypt </OptionButton>
+          <OptionButton type="button" customColor={"#fff"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt </OptionButton>
+          <OptionButton type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt </OptionButton>
         </Row>
         
       </Row>
