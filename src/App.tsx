@@ -11,22 +11,23 @@ import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
 
 export const App: React.FC = (ContainerOption) => {
   return (
-   
 
-    
       <Container DisplayFlex={true} HasMargin={true} DefaultMargin={0}>
       <Row>
         <Col flex={1}>
           <Banner ShowBanner={true} />
         </Col>
+        <Col flex={1}>
+          <Progress Active={true} Show={true} Step={1}/>
+        </Col>
       </Row>
       <Row>
         <Router>
-            <Route path="/" exact component={Uploader} />
-            <Route path="/encrypt" compoment={Encryption} />
-            <Route path="/decrypt" component={Decryption} />
-            <Route path="/send" component={Send} />
-          </Router>
+          <Route path="/" exact render={() => <Uploader Active={true} Show={true}/>} />
+          <Route path="/encrypt" render={() => <Encryption Active={true} Show={true}/>} />
+          <Route path="/decrypt" component={Decryption} render={ ()=> <Decryption Active={true} Show={true} />}/>
+          <Route path="/send" component={Send} render={() => <Send Active={true} Show={true} />}/>
+        </Router>
       </Row>
      </Container>
     

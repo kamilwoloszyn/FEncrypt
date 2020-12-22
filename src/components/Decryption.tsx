@@ -36,7 +36,7 @@ export const Decryption: React.FC<Props> = ( Props ) => {
   } else { 
     return (
       <div>
-        Module inactive
+        Module Decryption inactive
       </div>
     )
   }

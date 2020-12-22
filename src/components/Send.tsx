@@ -26,7 +26,7 @@ export const Send: React.FC<Props> = (Props) => {
   } else {
     return ( 
       <div>
-        Module Inactive
+        Module Send Inactive
       </div>
     )
   }

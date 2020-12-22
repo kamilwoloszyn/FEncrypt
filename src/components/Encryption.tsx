@@ -24,7 +24,7 @@ export const Encryption: React.FC<Props> = (Props)=> {
   } else { 
     return (
       <div>
-        Module Inactive
+        Module Encryption Inactive
       </div>
     )
   }

@@ -26,7 +26,7 @@ export const Progress: React.FC<Props> = (Props) => {
   )
   } else { 
     return (
-      <h1> Module inactive</h1>
+      <h1> Module Progress inactive</h1>
     )
   }
 }
