@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Row, Col } from '../../styles/layout/layout'
 
 interface BackgroundInterface { 
   ContainImage: boolean;
@@ -16,7 +17,7 @@ interface Props {
 }
 
 const BannerWrapper = styled.div<BannerWrapperProps>`
-display: ${({ Show }) => Show ? 'block' : 'none'};
+${({ Show }) => Show ? 'display: block;' : ''}
 ${({ ExtendedWidth }) => ExtendedWidth ? 'width: 100%;' : ''}
 `
 
@@ -27,6 +28,9 @@ background-image: ${({ ContainImage, BackgroundHref }) => ContainImage ? `url(${
 export const Banner: React.FC<Props>  = (Props) => { 
   return ( 
     <BannerWrapper Show={Props.ShowBanner} ExtendedWidth={true}>
+      <Row>
+
+      </Row>
       <Background ContainImage={false}> 
       Hello From Banner
       </Background>
