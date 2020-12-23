@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from '../../styles/layout/layout'
 import '../../styles/scss/banner.scss'
+import LogoImg from '../../images/FEncrypt_logo.png';
 
 interface BackgroundInterface { 
   ContainImage: boolean;
@@ -30,12 +31,8 @@ export const Banner: React.FC<Props>  = (Props) => {
   return ( 
     <BannerWrapper Show={Props.ShowBanner} ExtendedWidth={true}>
       <Row>
-
+        <img src={LogoImg} alt="logo" />
       </Row>
-      <Background ContainImage={false}> 
-      Hello From Banner
-      </Background>
-     
     </BannerWrapper>
   )
 }
