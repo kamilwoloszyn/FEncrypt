@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from '../../styles/layout/layout'
+import '../../styles/scss/banner.scss'
 
 interface BackgroundInterface { 
   ContainImage: boolean;
