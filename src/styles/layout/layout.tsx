@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+interface RowProps {
+  centered?: boolean
+}
 interface ColProps{
   flex: number
 }
@@ -18,9 +21,10 @@ margin: ${({ HasMargin, DefaultMargin }) => `${HasMargin}px` ? DefaultMargin : '
 ${({ DisplayFlex }) => DisplayFlex ? 'flex-wrap:wrap;': ''}
 `
 
-const Row = styled.div`
+const Row = styled.div<RowProps>`
 width:100%;
 flex-direction:column;
+${({ centered }) => centered ? 'text-align:center':''}
 `
 
 const Col = styled.div<ColProps>`
