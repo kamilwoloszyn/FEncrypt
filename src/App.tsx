@@ -25,8 +25,8 @@ export const App: React.FC = (ContainerOption) => {
         <Router>
           <Route path="/" exact render={() => <Uploader Active={true} Show={true}/>} />
           <Route path="/encrypt" render={() => <Encryption Active={true} Show={true}/>} />
-          <Route path="/decrypt" component={Decryption} render={ ()=> <Decryption Active={true} Show={true} />}/>
-          <Route path="/send" component={Send} render={() => <Send Active={true} Show={true} />}/>
+          <Route path="/decrypt" render={ ()=> <Decryption Active={true} Show={true} />}/>
+          <Route path="/send" render={() => <Send Active={true} Show={true} />}/>
         </Router>
       </Row>
      </Container>

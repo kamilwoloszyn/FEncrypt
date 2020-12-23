@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import styled from "styled-components";
 
 const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
-display:${({Show})=> Show? 'block':'none'}
+${({Show})=> Show? 'display:block':''}
 `
 interface DecryptionWrapperProps {
   Show: boolean
