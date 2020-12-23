@@ -1,7 +1,11 @@
+import '../styles/scss/forms.scss'
 import { arch } from "os";
 import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
+import { OptionButton } from '../styles/buttons';
+import { FormGroup,FormLabelBlock,FormInputBlock } from '../styles/forms'
+
 
 const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
 ${({Show})=> Show? 'display:block':''}
@@ -24,10 +28,18 @@ export const Decryption: React.FC<Props> = ( Props ) => {
            <h1> Decryption</h1>
          </div>
       
-      <form>
-        <input type="file" />
-        <input type="password" />
-        <input type="button">Decrypt !</input>
+         <form>
+           <FormGroup>
+             <FormLabelBlock>
+                <label htmlFor="pass">Enter password used to encrypt file</label>
+             </FormLabelBlock>
+             <FormInputBlock>
+                <input type="password" className="form-input" />
+              </FormInputBlock>
+            
+           </FormGroup>
+        
+        <OptionButton type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton>
       </form>
     
     </DecryptionWrapper>

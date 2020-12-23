@@ -1,0 +1,16 @@
+@mixin input-layout {
+    width: 2em;
+    height: 2em;
+    font-size: 2em;
+    font-weight: 200;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding:2px;
+}
+
+.form-input{ 
+ @include input-layout;
+ border:2px solid rgb(156, 153, 153) ;
+ border-radius: 2px;
+}
+
+
