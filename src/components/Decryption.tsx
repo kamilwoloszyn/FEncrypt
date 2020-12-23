@@ -34,7 +34,7 @@ export const Decryption: React.FC<Props> = ( Props ) => {
                 <label htmlFor="pass">Enter password used to encrypt file</label>
              </FormLabelBlock>
              <FormInputBlock>
-                <input type="password" className="form-input" />
+                <input type="password" placeholder="Enter password here" className="form-input" />
               </FormInputBlock>
             
            </FormGroup>
