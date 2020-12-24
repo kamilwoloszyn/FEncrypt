@@ -40,8 +40,6 @@ export const Encryption: React.FC<Props> = (Props)=> {
             </form>
             </FormGroup>
         </Row>
-        
-     
         </EncryptionWrapper>
       )
   } else { 
