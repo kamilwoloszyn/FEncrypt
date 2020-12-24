@@ -1,0 +1,27 @@
+
+.step { 
+height:3em;
+width:3em;
+background-color: #bbb;
+border-radius: 50%;
+border: 5px solid rgb(224, 224, 224);
+display: inline-block;
+font-family: inherit;
+font-size: 1em;
+ &:after { 
+     content: '';
+     display: block;
+     position: relative;
+     width:30px;
+     height: 3px;
+     background-color: rgb(207, 207, 207);
+     top:4px; 
+ }
+ 
+}
+.active {
+    background-color: rgb(75, 18, 18);
+ }
+.steps-group{
+    text-align: center;
+}
