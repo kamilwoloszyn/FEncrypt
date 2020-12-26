@@ -21,9 +21,16 @@ export const Progress: React.FC<Props> = (Props) => {
     return (
       <ProgressWrapper Show={Props.Show}>
         <div className="steps-group">
-          <span className="step active">1</span>
-          <span className="step">2</span>
-          <span className="step">3</span>
+          <div className="step-group">
+            <span className="step visited">1</span>
+          </div>
+          <div className="step-group">
+            <span className="step visited">2</span>
+          </div>
+          <div className="step-group">
+            <span className="step">3</span>
+          </div>
+          
         </div>
       </ProgressWrapper>
     

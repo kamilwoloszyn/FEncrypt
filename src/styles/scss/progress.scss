@@ -2,26 +2,45 @@
 .step { 
 height:3em;
 width:3em;
-background-color: #bbb;
+background-color: rgb(235, 235, 235);
 border-radius: 50%;
-border: 5px solid rgb(224, 224, 224);
+border: 2px solid rgb(76, 0, 255);
 display: inline-block;
 font-family: inherit;
 font-size: 1em;
+
  &:after { 
      content: '';
      display: block;
      position: relative;
-     width:30px;
      height: 3px;
-     background-color: rgb(207, 207, 207);
+     background-color: rgb(76, 0, 255);
+     width:100vw;
      top:4px; 
+     left:3em;
+    
+
  }
+
  
 }
 .active {
-    background-color: rgb(75, 18, 18);
+    background-color: rgb(76, 0, 255);
+ }
+ .visited { 
+     background-color: rgb(212, 148, 28)
  }
 .steps-group{
     text-align: center;
+}
+
+.step-group{ 
+padding-right: 3vw;
+display: inline-block;
+overflow: hidden;
+&:last-child { 
+    .step::after{
+        display: none;
+    }
+}
 }
