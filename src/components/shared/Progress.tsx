@@ -19,7 +19,7 @@ display:${({ Show })=> Show ?'block':'none'}
 export const Progress: React.FC<Props> = (Props) => {
   if (Props.Active) { 
     return (
-      <ProgressWrapper Show={Props.Show}>
+      <ProgressWrapper Show={Props.Show} className="progress-wrapper">
         <div className="steps-group">
           <div className="step-group">
             <span className="step visited">1</span>

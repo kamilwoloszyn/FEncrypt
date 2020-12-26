@@ -7,12 +7,13 @@ import { Encryption } from './components/Encryption';
 import { Decryption } from './components/Decryption';
 import { Send } from './components/Send';
 import { Col, Row,Container } from './styles/layout/layout';
-import { BrowserRouter as Router, Link, Route} from 'react-router-dom';
-
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import './styles/scss/main.scss';
 export const App: React.FC = (ContainerOption) => {
   return (
 
-      <Container DisplayFlex={true} HasMargin={true} DefaultMargin={0}>
+    <Container DisplayFlex={true} HasMargin={true} DefaultMargin={0} className="main-wrapper">
+      <div className="main-bg"></div>
       <Row>
         <Col flex={1}>
           <Banner ShowBanner={true} />
