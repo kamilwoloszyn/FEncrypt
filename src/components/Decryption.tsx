@@ -6,6 +6,8 @@ import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
 import { Link } from 'react-router-dom';
 import '../styles/scss/encrypt.scss';
 import '../styles/scss/shared/text.scss';
+import { Col } from '../styles/layout/layout'; 
+import '../styles/scss/shared/modal.scss';
 
 const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
 ${({Show})=> Show? 'display:block':''}
@@ -18,8 +20,6 @@ interface Props {
   Active: boolean;
   Show: boolean;
 }
-
-
 export const Decryption: React.FC<Props> = ( Props ) => {
   if (Props.Active) {
      return (
@@ -27,8 +27,9 @@ export const Decryption: React.FC<Props> = ( Props ) => {
          <div className="component-header">
            Decryption
          </div>
-      
-         <form>
+         <Col>
+           <div className="modal-theme">
+              <form>
            <FormGroup>
              <FormLabelBlock>
                 <label htmlFor="pass">Enter password used to encrypt file</label>
@@ -37,10 +38,13 @@ export const Decryption: React.FC<Props> = ( Props ) => {
                 <input type="password" placeholder="Enter password here" className="form-input" />
               </FormInputBlock>
            </FormGroup>
-        
-      <Link to="/send"> <OptionButton type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
-      </form>
-    
+            <Link to="/send"> <OptionButton type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
+             </form>
+           </div>
+           <div>
+             addadads
+           </div>
+        </Col>
     </DecryptionWrapper>
     
   )

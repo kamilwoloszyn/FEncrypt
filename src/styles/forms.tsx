@@ -16,7 +16,7 @@ flex-direction:column;
 const FormLabelBlock = styled.div`
 font-weight:200;
 font-size:1em;
-padding:2em;
+padding:1em;
 `
 
 const FormInputBlock = styled.div`
