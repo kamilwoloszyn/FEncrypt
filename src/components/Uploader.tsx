@@ -22,8 +22,9 @@ const UploadWrapper = styled.div<UploadWrapperProps>`
 export const Uploader: React.FC<Props> = (Props) => {
   if (Props.Active) {
     return (
-      <UploadWrapper Show={Props.Show} className="uploader-wrapper modal-theme">
-        <Row>
+      <UploadWrapper Show={Props.Show} className="uploader-wrapper">
+        <Col className="">
+        <Row className="modal-theme">
           <div>
             <input type="file" />
           </div>
@@ -34,7 +35,13 @@ export const Uploader: React.FC<Props> = (Props) => {
             <OptionButton type="button" customColor={"#38b13b"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt </OptionButton>
             <OptionButton type="button" customColor={"#e63a2a"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt </OptionButton>
           </Col>
-        </Row>
+
+          </Row>
+          <div>
+            adadsd
+          </div>
+        </Col>
+       
        
         
       </UploadWrapper>
