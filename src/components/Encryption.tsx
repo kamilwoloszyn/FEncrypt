@@ -6,7 +6,7 @@ import { OptionButton } from '../styles/buttons';
 import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
 import { Link } from 'react-router-dom';
 import '../styles/scss/encrypt.scss';
-
+import '../styles/scss/shared/text.scss';
 
 const EncryptionWrapper = styled.div<EncryptionWrapperProps>`
 display:${({ Show }) => Show ? 'block':'none'}
@@ -25,8 +25,8 @@ export const Encryption: React.FC<Props> = (Props)=> {
     return (
       <EncryptionWrapper Show={Props.Show} > 
         <Row>
-          <Col>
-            <h1> Encryption</h1>
+          <Col className="component-header">
+             Encryption
           </Col>
          </Row>
         <Row>
