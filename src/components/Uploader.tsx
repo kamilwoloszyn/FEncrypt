@@ -8,6 +8,7 @@ import '../styles/scss/shared/modal.scss';
 import '../styles/scss/shared/responsive.scss';
 import DatabaseCloud from '../images/database-cloud.png';
 import FileIcon from '../images/file.png';
+import {Link} from 'react-router-dom';
 
 interface Props {
   Active: boolean;
@@ -38,8 +39,8 @@ export const Uploader: React.FC<Props> = (Props) => {
             Then select Encrypt or Decrypt operation
           </div>
           <Col>
-            <OptionButton type="button" customColor={"#38b13b"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt </OptionButton>
-            <OptionButton type="button" customColor={"#e63a2a"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt </OptionButton>
+            <Link to="/encrypt"> <OptionButton type="button" customColor={"#38b13b"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt </OptionButton> </Link> 
+            <Link to="/decrypt"><OptionButton type="button" customColor={"#e63a2a"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt </OptionButton></Link> 
           </Col>
 
           </Row>
