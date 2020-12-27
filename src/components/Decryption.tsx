@@ -4,8 +4,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { OptionButton } from '../styles/buttons';
-import { FormGroup,FormLabelBlock,FormInputBlock } from '../styles/forms'
-
+import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
+import { Link } from 'react-router-dom';
 
 const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
 ${({Show})=> Show? 'display:block':''}
@@ -36,10 +36,9 @@ export const Decryption: React.FC<Props> = ( Props ) => {
              <FormInputBlock>
                 <input type="password" placeholder="Enter password here" className="form-input" />
               </FormInputBlock>
-            
            </FormGroup>
         
-        <OptionButton type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton>
+      <Link to="/send"> <OptionButton type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
       </form>
     
     </DecryptionWrapper>

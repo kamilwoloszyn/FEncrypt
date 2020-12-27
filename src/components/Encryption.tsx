@@ -1,10 +1,10 @@
 import '../styles/scss/forms.scss';
 import React from "react";
-import ReactDOM from "react-dom";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
-import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms'
+import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
+import { Link } from 'react-router-dom';
 
 const EncryptionWrapper = styled.div<EncryptionWrapperProps>`
 display:${({ Show }) => Show ? 'block':'none'}
@@ -36,7 +36,7 @@ export const Encryption: React.FC<Props> = (Props)=> {
               <FormInputBlock>
                 <input type="text" name="encryptpassword" className="form-input" placeholder="Enter your password here" />
               </FormInputBlock>
-                <OptionButton type="button" customColor={"#fff"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt !</OptionButton>
+                <Link to="/send"><OptionButton type="button" customColor={"#fff"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt !</OptionButton> </Link>
             </form>
             </FormGroup>
         </Row>
