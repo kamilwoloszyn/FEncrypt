@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
 import '../styles/scss/uploader.scss';
-
+import '../styles/scss/shared/modal.scss'
 
 interface Props {
   Active: boolean;
@@ -22,7 +22,7 @@ const UploadWrapper = styled.div<UploadWrapperProps>`
 export const Uploader: React.FC<Props> = (Props) => {
   if (Props.Active) {
     return (
-      <UploadWrapper Show={Props.Show} className="uploader-wrapper">
+      <UploadWrapper Show={Props.Show} className="uploader-wrapper modal-theme">
         <Row>
           <code> Welcome to File Encryptor! Select file and action</code>
         </Row>
