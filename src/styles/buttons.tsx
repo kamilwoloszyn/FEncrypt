@@ -8,9 +8,9 @@ interface Props {
 }
 
 const OptionButton = styled.button<Props>`
-padding:20px;
-margin:1em;
-width:15em;
+padding:5px;
+margin:0.3em;
+width:6em;
 &:hover{
   cursor:pointer;
 }
@@ -19,7 +19,7 @@ background-color: ${({ customColor }) => customColor ? customColor : '#fff'};
   background-color: ${({ hoverColor }) => hoverColor ? hoverColor: '#fff' }
 }
 border-radius:3px;
-border:3px solid ${({ borderColor }) => borderColor ? borderColor : '#fff'};
+border:2px solid ${({ borderColor }) => borderColor ? borderColor : '#fff'};
 transition: all ease-out .2s;
 `
 
