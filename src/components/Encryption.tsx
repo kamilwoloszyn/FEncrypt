@@ -23,7 +23,7 @@ export const Encryption: React.FC<Props> = (Props)=> {
     return (
       <EncryptionWrapper Show={Props.Show} > 
         <Row>
-          <Col flex={1}>
+          <Col>
             <h1> Encryption</h1>
           </Col>
          </Row>

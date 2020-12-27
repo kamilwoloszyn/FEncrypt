@@ -1,35 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface RowProps {
-  centered?: boolean
-}
-interface ColProps{
-  flex: number
-}
-
 interface ContainerOption { 
   DisplayFlex: boolean;
-  HasMargin: boolean;
-  DefaultMargin?: number;
 }
 
 
 const Container = styled.div<ContainerOption>`
-${({DisplayFlex}) => DisplayFlex ? 'display:flex;' : ''}
-margin: ${({ HasMargin, DefaultMargin }) => `${HasMargin}px` ? DefaultMargin : 'auto'};
-${({ DisplayFlex }) => DisplayFlex ? 'flex-wrap:wrap;': ''}
+${({DisplayFlex}) => DisplayFlex ? 'display:flex;flex-direction:column;' : ''}
+
 `
 
-const Row = styled.div<RowProps>`
-width:100%;
+const Row = styled.div`
+display:flex;
 flex-direction:column;
-${({ centered }) => centered ? 'text-align:center':''}
+
 `
 
-const Col = styled.div<ColProps>`
+const Col = styled.div`
+display:flex;
 flex-direction:row;
-${({flex})=> flex? `flex:${flex};` : ''}
 `
 
 export { 

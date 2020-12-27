@@ -30,7 +30,7 @@ background-image: ${({ ContainImage, BackgroundHref }) => ContainImage ? `url(${
 export const Banner: React.FC<Props>  = (Props) => { 
   return ( 
     <BannerWrapper Show={Props.ShowBanner} ExtendedWidth={true}>
-      <Row centered={true}>
+      <Row>
         <img src={LogoImg} alt="logo" />
       </Row>
     </BannerWrapper>

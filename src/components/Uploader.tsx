@@ -23,13 +23,19 @@ export const Uploader: React.FC<Props> = (Props) => {
   if (Props.Active) {
     return (
       <UploadWrapper Show={Props.Show} className="uploader-wrapper modal-theme">
-        <Col flex={1}>
-    
         <Row>
-          <OptionButton type="button" customColor={"#38b13b"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt </OptionButton>
-          <OptionButton type="button" customColor={"#e63a2a"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt </OptionButton>
+          <div>
+            <input type="file" />
+          </div>
+          <div>
+            Then select Encrypt or Decrypt operation
+          </div>
+          <Col>
+            <OptionButton type="button" customColor={"#38b13b"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt </OptionButton>
+            <OptionButton type="button" customColor={"#e63a2a"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt </OptionButton>
+          </Col>
         </Row>
-        </Col>
+       
         
       </UploadWrapper>
     )

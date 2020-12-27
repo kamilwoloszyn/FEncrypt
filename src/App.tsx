@@ -12,13 +12,13 @@ import './styles/scss/main.scss';
 export const App: React.FC = (ContainerOption) => {
   return (
 
-    <Container DisplayFlex={true} HasMargin={true} DefaultMargin={0} className="main-wrapper">
+    <Container DisplayFlex={true} className="main-wrapper">
       <div className="main-bg"></div>
       <Row>
-        <Col flex={1}>
+        <Col>
           <Banner ShowBanner={true} />
         </Col>
-        <Col flex={1}>
+        <Col>
           <Progress Active={true} Show={true} Step={1}/>
         </Col>
       </Row>
