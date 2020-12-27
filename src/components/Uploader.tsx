@@ -5,6 +5,7 @@ import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
 import '../styles/scss/uploader.scss';
 import '../styles/scss/shared/modal.scss'
+import '../styles/scss/shared/responsive.scss'
 
 interface Props {
   Active: boolean;
@@ -22,8 +23,8 @@ const UploadWrapper = styled.div<UploadWrapperProps>`
 export const Uploader: React.FC<Props> = (Props) => {
   if (Props.Active) {
     return (
-      <UploadWrapper Show={Props.Show} className="uploader-wrapper">
-        <Col className="">
+      <UploadWrapper Show={Props.Show} >
+        <Col className="responsive-flexbox item-wrapper">
         <Row className="modal-theme">
           <div>
             <input type="file" />
