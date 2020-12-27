@@ -6,6 +6,8 @@ import styled from "styled-components";
 import { OptionButton } from '../styles/buttons';
 import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
 import { Link } from 'react-router-dom';
+import '../styles/scss/encrypt.scss';
+
 
 const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
 ${({Show})=> Show? 'display:block':''}
