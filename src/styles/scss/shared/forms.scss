@@ -1,5 +1,5 @@
 @mixin input-layout {
-    font-size: 2em;
+    font-size: 1em;
     font-weight: 200;
     padding:2px;
     font-family: inherit;
@@ -7,7 +7,7 @@
 
 .form-input{ 
  @include input-layout;
- border:2px solid rgb(156, 153, 153) ;
+ border:1px solid rgb(156, 153, 153) ;
  border-radius: 2px;
 }
 

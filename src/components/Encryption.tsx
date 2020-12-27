@@ -1,4 +1,4 @@
-import '../styles/scss/forms.scss';
+import '../styles/scss/shared/forms.scss';
 import React from "react";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';

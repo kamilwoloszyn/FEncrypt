@@ -15,12 +15,12 @@ flex-direction:column;
 `
 const FormLabelBlock = styled.div`
 font-weight:200;
-font-size:1.5em;
-padding:1em;
+font-size:1em;
+padding:2em;
 `
 
 const FormInputBlock = styled.div`
- padding:1em;
+ padding:.3em;
 `
 
 export {

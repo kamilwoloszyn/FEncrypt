@@ -1,7 +1,5 @@
-import '../styles/scss/forms.scss'
-import { arch } from "os";
+import '../styles/scss/shared/forms.scss'
 import React from "react";
-import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { OptionButton } from '../styles/buttons';
 import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
