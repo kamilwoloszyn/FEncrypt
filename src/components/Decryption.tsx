@@ -7,7 +7,7 @@ import { OptionButton } from '../styles/buttons';
 import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
 import { Link } from 'react-router-dom';
 import '../styles/scss/encrypt.scss';
-
+import '../styles/scss/shared/text.scss';
 
 const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
 ${({Show})=> Show? 'display:block':''}
@@ -26,8 +26,8 @@ export const Decryption: React.FC<Props> = ( Props ) => {
   if (Props.Active) {
      return (
        <DecryptionWrapper Show={Props.Show}>
-         <div>
-           <h1> Decryption</h1>
+         <div className="component-header">
+           Decryption
          </div>
       
          <form>
