@@ -7,6 +7,7 @@ import '../styles/scss/uploader.scss';
 import '../styles/scss/shared/modal.scss';
 import '../styles/scss/shared/responsive.scss';
 import DatabaseCloud from '../images/database-cloud.png';
+import FileIcon from '../images/file.png';
 
 interface Props {
   Active: boolean;
@@ -27,9 +28,12 @@ export const Uploader: React.FC<Props> = (Props) => {
       <UploadWrapper Show={Props.Show} >
         <Col className="responsive-flexbox item-wrapper">
         <Row className="modal-theme">
-          <div>
-            <input type="file" />
-          </div>
+            <div>
+              <form>
+                <label htmlFor="styleupload" ><img src={FileIcon} /></label>
+                <input type="file" name="filetoupload" id="styleupload" />
+              </form>
+            </div>
           <div>
             Then select Encrypt or Decrypt operation
           </div>
