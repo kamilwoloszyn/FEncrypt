@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
 import '../styles/scss/uploader.scss';
-import '../styles/scss/shared/modal.scss'
-import '../styles/scss/shared/responsive.scss'
+import '../styles/scss/shared/modal.scss';
+import '../styles/scss/shared/responsive.scss';
+import DatabaseCloud from '../images/database-cloud.png';
 
 interface Props {
   Active: boolean;
@@ -39,7 +40,7 @@ export const Uploader: React.FC<Props> = (Props) => {
 
           </Row>
           <div>
-            adadsd
+            <img src={DatabaseCloud} alt="icon" className="responsive-image" />
           </div>
         </Col>
        

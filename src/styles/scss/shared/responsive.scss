@@ -1,5 +1,11 @@
 .responsive-flexbox { 
     @media screen and (max-width:600px) {
         flex-direction: column;
+        align-items: center;
     }
+}
+
+.responsive-image { 
+    max-width: 30vw;
+    height: auto;
 }
