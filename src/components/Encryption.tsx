@@ -7,6 +7,7 @@ import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
 import { Link } from 'react-router-dom';
 import '../styles/scss/encrypt.scss';
 import '../styles/scss/shared/text.scss';
+import '../styles/scss/shared/modal.scss';
 
 const EncryptionWrapper = styled.div<EncryptionWrapperProps>`
 display:${({ Show }) => Show ? 'block':'none'}
@@ -24,24 +25,27 @@ export const Encryption: React.FC<Props> = (Props)=> {
   if (Props.Active) {
     return (
       <EncryptionWrapper Show={Props.Show} > 
-        <Row>
-          <Col className="component-header">
-             Encryption
-          </Col>
-         </Row>
-        <Row>
-          <FormGroup>
-            <form>
-              <FormLabelBlock>
-                <label htmlFor="encryptpassword">Enter password you want to decrypt file later.</label>
-              </FormLabelBlock>
-              <FormInputBlock>
-                <input type="text" name="encryptpassword" className="form-input" placeholder="Enter your password here" />
-              </FormInputBlock>
-                <Link to="/send"><OptionButton type="button" customColor={"#fff"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt !</OptionButton> </Link>
-            </form>
-            </FormGroup>
-        </Row>
+           <Row>
+            <Col className="component-header">
+              Encryption
+            </Col>
+          </Row>
+          <div className="modal-theme">
+            <Row>
+              <FormGroup>
+                <form>
+                  <FormLabelBlock>
+                    <label htmlFor="encryptpassword">Enter password you want to decrypt file later.</label>
+                  </FormLabelBlock>
+                  <FormInputBlock>
+                    <input type="text" name="encryptpassword" className="form-input" placeholder="Enter your password here" />
+                  </FormInputBlock>
+                    <Link to="/send"><OptionButton type="button" customColor={"#fff"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt !</OptionButton> </Link>
+                </form>
+                </FormGroup>
+            </Row>
+          </div>
+         
         </EncryptionWrapper>
       )
   } else { 

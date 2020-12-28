@@ -44,8 +44,8 @@ export const Decryption: React.FC<Props> = ( Props ) => {
            <div>
              addadads
            </div>
-        </Col>
-    </DecryptionWrapper>
+           </Col>
+        </DecryptionWrapper>
     
   )
   } else { 
