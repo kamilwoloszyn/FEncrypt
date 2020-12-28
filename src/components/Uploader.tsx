@@ -28,17 +28,20 @@ export const Uploader: React.FC<Props> = (Props) => {
     return (
       <UploadWrapper Show={Props.Show} >
         <Col className="responsive-flexbox item-wrapper">
-        <Row className="modal-theme">
-            <div>
+          <Row className="modal-theme">
+            <div className="modal-item">
+             First, click to Upload icon
+            </div>
+            <div className="modal-item">
               <form>
                 <label htmlFor="styleupload" ><img src={FileIcon} /></label>
                 <input type="file" name="filetoupload" id="styleupload" />
               </form>
             </div>
-          <div>
+          <div className="modal-item">
             Then select Encrypt or Decrypt operation
           </div>
-          <Col>
+          <Col className="modal-item modal-centered">
             <Link to="/encrypt"> <OptionButton type="button" customColor={"#38b13b"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt </OptionButton> </Link> 
             <Link to="/decrypt"><OptionButton type="button" customColor={"#e63a2a"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt </OptionButton></Link> 
           </Col>

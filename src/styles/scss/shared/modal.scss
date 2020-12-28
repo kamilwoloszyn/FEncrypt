@@ -4,3 +4,12 @@ border-radius: 10px;
 padding: 1em;
 text-align: center;
 }
+
+.modal-item { 
+    box-sizing: border-box;
+    padding:calc(1vw + 0.3em);
+}
+
+.modal-centered { 
+    align-items: center;
+}
