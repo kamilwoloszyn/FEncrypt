@@ -1,5 +1,5 @@
 import '../styles/scss/shared/forms.scss';
-import React,{useEffect} from "react";
+import React,{useEffect,useRef} from "react";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
@@ -24,6 +24,7 @@ interface Props {
 }
 
 export const Encryption: React.FC<Props> = (Props) => {
+  const passwordRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(SetStep(1))
@@ -41,15 +42,17 @@ export const Encryption: React.FC<Props> = (Props) => {
             <Row>
               <FormGroup>
                 <form>
-                  <FormLabelBlock>
-                    <label htmlFor="encryptpassword">Enter password you want to decrypt file later.</label>
-                  </FormLabelBlock>
-                  <FormInputBlock>
-                    <input type="text" name="encryptpassword" className="form-input" placeholder="Enter your password here" />
-                  </FormInputBlock>
-                    <Link to="/send"><OptionButton type="button" customColor={"#fff"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt !</OptionButton> </Link>
+                    <FormLabelBlock>
+                        <label htmlFor="encryptpassword">Enter password you want to decrypt file later.</label>
+                      </FormLabelBlock>
+                    <FormInputBlock>
+                        <input type="text" name="encryptpassword" className="form-input" placeholder="Enter your password here" ref={passwordRef} />
+                    </FormInputBlock>
+                    <Link to="/send">
+                      <OptionButton type="button" customColor={"#fff"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt !</OptionButton>
+                    </Link>
                 </form>
-                </FormGroup>
+              </FormGroup>
             </Row>
           </div>
          

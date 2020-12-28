@@ -1,5 +1,5 @@
 import '../styles/scss/shared/forms.scss'
-import React,{useEffect} from "react";
+import React,{useEffect, useRef} from "react";
 import styled from "styled-components";
 import { OptionButton } from '../styles/buttons';
 import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
@@ -24,6 +24,8 @@ interface Props {
 }
 export const Decryption: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
+  const passwordRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     dispatch(SetStep(1))
   },[])
@@ -42,7 +44,7 @@ export const Decryption: React.FC<Props> = (Props) => {
                 <label htmlFor="pass">Enter password used to encrypt file</label>
              </FormLabelBlock>
              <FormInputBlock>
-                <input type="password" placeholder="Enter password here" className="form-input" />
+                   <input type="password" placeholder="Enter password here" className="form-input" ref={passwordRef}/>
               </FormInputBlock>
            </FormGroup>
             <Link to="/send"> <OptionButton type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
