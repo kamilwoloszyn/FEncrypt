@@ -4,7 +4,7 @@ height:3em;
 width:3em;
 background-color: rgb(235, 235, 235);
 border-radius: 50%;
-border: 2px solid rgb(76, 0, 255);
+border: 2px solid #deaa15;
 display: inline-block;
 font-family: inherit;
 font-size: 1em;
@@ -14,17 +14,17 @@ font-size: 1em;
      display: block;
      position: relative;
      height: 3px;
-     background-color: rgb(76, 0, 255);
+     background-color: #deaa15;
      width:100vw;
      top:4px; 
      left:3em;
  }
 }
 .active {
-    background-color: rgb(76, 0, 255);
+    background-color: rgb(220, 219, 223);
  }
  .visited { 
-     background-color: rgb(212, 148, 28)
+     background-color: #e88d58
  }
 .steps-group{
     text-align: center;
