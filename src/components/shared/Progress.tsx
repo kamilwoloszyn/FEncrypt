@@ -23,7 +23,7 @@ display:${({ Show })=> Show ?'block':'none'}
 `
 const StyledStep = styled.span<StepProps>`
 ${({ stepId, current }) => (current > stepId) ? 'background-color: #e88d58' : ''}
-${({stepId,current})=> (current == stepId )? 'background-color:#dcdbdf': ''}
+${({stepId,current})=> (current === stepId )? 'background-color:#dcdbdf': ''}
 `
 
 export const Progress: React.FC<Props> = (Props) => {

@@ -19,7 +19,7 @@ export const Send: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(SetStep(2))
-  },[])
+  })
   if (Props.Active) {
     return (
       <SendWrapper Show={Props.Show}>

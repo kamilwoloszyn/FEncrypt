@@ -28,7 +28,7 @@ export const Decryption: React.FC<Props> = (Props) => {
 
   useEffect(() => {
     dispatch(SetStep(1))
-  },[])
+  })
 
   if (Props.Active) {
      return (

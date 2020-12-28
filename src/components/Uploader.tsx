@@ -1,5 +1,4 @@
 import React,{useEffect} from "react";
-import ReactDOM from "react-dom";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
@@ -29,7 +28,7 @@ export const Uploader: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(SetStep(0))
-  }, [])
+  })
   
   if (Props.Active) {
     return (
@@ -41,7 +40,7 @@ export const Uploader: React.FC<Props> = (Props) => {
             </div>
             <div className="modal-item">
               <form>
-                <label htmlFor="styleupload" ><img src={FileIcon} /></label>
+                <label htmlFor="styleupload" ><img src={FileIcon} alt="fileicon"/></label>
                 <input type="file" name="filetoupload" id="styleupload" />
               </form>
             </div>

@@ -1,14 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-
-interface InputProps{ 
-  size:  {
-    width: string
-    height: string
-  }
-  fontSize?: string
-  fontFamily?: string
-}
 
 const FormGroup = styled.div`
 flex-direction:column;

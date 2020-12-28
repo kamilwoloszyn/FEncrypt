@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import styled from 'styled-components';
 import { Banner } from './components/shared/Banner';
 import { Progress } from './components/shared/Progress';
 import { Uploader } from './components/Uploader';
@@ -7,7 +6,7 @@ import { Encryption } from './components/Encryption';
 import { Decryption } from './components/Decryption';
 import { Send } from './components/Send';
 import { Col, Row,Container } from './styles/layout/layout';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './styles/scss/main.scss';
 import { PasswordContext } from './context/PasswordContext';
 

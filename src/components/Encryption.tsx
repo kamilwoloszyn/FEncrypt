@@ -28,7 +28,7 @@ export const Encryption: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(SetStep(1))
-  }, [])
+  })
   
   if (Props.Active) {
     return (
