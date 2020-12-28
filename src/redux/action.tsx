@@ -15,8 +15,6 @@ export const SetStep = (val: number): NextStep => {
     value: 0
     })
   }
-  
-   
 }
 
 

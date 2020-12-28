@@ -23,7 +23,6 @@ interface UploadWrapperProps {
 const UploadWrapper = styled.div<UploadWrapperProps>`
   ${({ Show }) => Show ? '':'display:none'}
 `
-
 export const Uploader: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   useEffect(() => {

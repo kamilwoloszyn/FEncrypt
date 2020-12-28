@@ -31,14 +31,10 @@ export const App: React.FC = (ContainerOption) => {
             <Route path="/encrypt" render={() => <Encryption Active={true} Show={true}/>} />
             <Route path="/decrypt" render={ ()=> <Decryption Active={true} Show={true} />}/>
             <Route path="/send" render={() => <Send Active={true} Show={true} />}/>
-          </PasswordContext.Provider>
-          
+          </PasswordContext.Provider>       
         </Router>
       </Row>
      </Container>
-    
-     
-
   );
 }
 
