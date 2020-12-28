@@ -20,7 +20,7 @@ export const App: React.FC = (ContainerOption) => {
           <Banner ShowBanner={true} />
         </Col>
         <Col>
-          <Progress Active={true} Show={true} Step={1}/>
+          <Progress Active={true} Show={true}/>
         </Col>
       </Row>
       <Row>

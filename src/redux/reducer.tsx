@@ -2,7 +2,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { NextStep } from './action';
 
-interface StepState {
+export interface StepState {
   currentStep: number
 }
 
@@ -13,7 +13,7 @@ export const ProgressReducer = (state: StepState =initialStepState, action: Next
   switch (action.type) {
     case "NEXT_STEP": {
       return {
-       ...state, currentStep: 1
+       ...state, currentStep: 2
       }
     }
     default: {

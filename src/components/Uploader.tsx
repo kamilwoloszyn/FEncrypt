@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import ReactDOM from "react-dom";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
@@ -8,7 +8,8 @@ import '../styles/scss/shared/modal.scss';
 import '../styles/scss/shared/responsive.scss';
 import DatabaseCloud from '../images/database-cloud.png';
 import FileIcon from '../images/file.png';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 interface Props {
   Active: boolean;
@@ -24,6 +25,11 @@ const UploadWrapper = styled.div<UploadWrapperProps>`
 `
 
 export const Uploader: React.FC<Props> = (Props) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({type:"NEXT_STEP"})
+  }, [])
+  
   if (Props.Active) {
     return (
       <UploadWrapper Show={Props.Show} >
@@ -45,7 +51,6 @@ export const Uploader: React.FC<Props> = (Props) => {
             <Link to="/encrypt"> <OptionButton type="button" customColor={"#38b13b"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt </OptionButton> </Link> 
             <Link to="/decrypt"><OptionButton type="button" customColor={"#e63a2a"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt </OptionButton></Link> 
           </Col>
-
           </Row>
           <div>
             <img src={DatabaseCloud} alt="icon" className="responsive-image" />
