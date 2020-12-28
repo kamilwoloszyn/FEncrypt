@@ -10,6 +10,7 @@ import DatabaseCloud from '../images/database-cloud.png';
 import FileIcon from '../images/file.png';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { SetStep } from '../redux/action';
 
 interface Props {
   Active: boolean;
@@ -27,7 +28,7 @@ const UploadWrapper = styled.div<UploadWrapperProps>`
 export const Uploader: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({type:"NEXT_STEP"})
+    dispatch(SetStep(0))
   }, [])
   
   if (Props.Active) {

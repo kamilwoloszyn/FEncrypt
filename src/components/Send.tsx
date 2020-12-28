@@ -1,6 +1,7 @@
 import React,{useEffect} from "react";
 import styled from 'styled-components'
 import {useDispatch} from 'react-redux'
+import { SetStep } from '../redux/action';
 
 interface Props {
   Active: boolean;
@@ -14,11 +15,10 @@ interface SendWrapperProps {
 const SendWrapper = styled.div<SendWrapperProps>`
 display:${({Show})=> Show? 'block':'none'}
 `
-
 export const Send: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type:"NEXT_STEP"})
+    dispatch(SetStep(2))
   },[])
   if (Props.Active) {
     return (

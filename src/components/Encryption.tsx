@@ -9,6 +9,7 @@ import '../styles/scss/encrypt.scss';
 import '../styles/scss/shared/text.scss';
 import '../styles/scss/shared/modal.scss';
 import { useDispatch } from 'react-redux';
+import { SetStep } from '../redux/action';
 
 const EncryptionWrapper = styled.div<EncryptionWrapperProps>`
 display:${({ Show }) => Show ? 'block':'none'}
@@ -25,7 +26,7 @@ interface Props {
 export const Encryption: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch({ type: "NEXT_STEP"})
+    dispatch(SetStep(1))
   }, [])
   
   if (Props.Active) {

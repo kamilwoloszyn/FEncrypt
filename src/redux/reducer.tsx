@@ -13,7 +13,7 @@ export const ProgressReducer = (state: StepState =initialStepState, action: Next
   switch (action.type) {
     case "NEXT_STEP": {
       return {
-       ...state, currentStep: 2
+       ...state, currentStep: action.value 
       }
     }
     default: {
