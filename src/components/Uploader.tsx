@@ -56,9 +56,6 @@ export const Uploader: React.FC<Props> = (Props) => {
             <img src={DatabaseCloud} alt="icon" className="responsive-image" />
           </div>
         </Col>
-       
-       
-        
       </UploadWrapper>
     )
   } else {

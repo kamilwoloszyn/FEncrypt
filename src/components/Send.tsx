@@ -1,7 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React,{useEffect} from "react";
 import styled from 'styled-components'
-import { isPropertySignature } from "typescript";
+import {useDispatch} from 'react-redux'
 
 interface Props {
   Active: boolean;
@@ -17,6 +16,10 @@ display:${({Show})=> Show? 'block':'none'}
 `
 
 export const Send: React.FC<Props> = (Props) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type:"NEXT_STEP"})
+  },[])
   if (Props.Active) {
     return (
       <SendWrapper Show={Props.Show}>

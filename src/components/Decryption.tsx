@@ -1,5 +1,5 @@
 import '../styles/scss/shared/forms.scss'
-import React from "react";
+import React,{useEffect} from "react";
 import styled from "styled-components";
 import { OptionButton } from '../styles/buttons';
 import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
@@ -8,6 +8,7 @@ import '../styles/scss/encrypt.scss';
 import '../styles/scss/shared/text.scss';
 import { Col } from '../styles/layout/layout'; 
 import '../styles/scss/shared/modal.scss';
+import { useDispatch } from 'react-redux';
 
 const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
 ${({Show})=> Show? 'display:block':''}
@@ -20,7 +21,12 @@ interface Props {
   Active: boolean;
   Show: boolean;
 }
-export const Decryption: React.FC<Props> = ( Props ) => {
+export const Decryption: React.FC<Props> = (Props) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: "NEXT_STEP"})
+  },[])
+
   if (Props.Active) {
      return (
        <DecryptionWrapper Show={Props.Show}>

@@ -1,5 +1,5 @@
 import '../styles/scss/shared/forms.scss';
-import React from "react";
+import React,{useEffect} from "react";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import '../styles/scss/encrypt.scss';
 import '../styles/scss/shared/text.scss';
 import '../styles/scss/shared/modal.scss';
+import { useDispatch } from 'react-redux';
 
 const EncryptionWrapper = styled.div<EncryptionWrapperProps>`
 display:${({ Show }) => Show ? 'block':'none'}
@@ -21,7 +22,12 @@ interface Props {
   Show: boolean
 }
 
-export const Encryption: React.FC<Props> = (Props)=> {
+export const Encryption: React.FC<Props> = (Props) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: "NEXT_STEP"})
+  }, [])
+  
   if (Props.Active) {
     return (
       <EncryptionWrapper Show={Props.Show} > 
