@@ -35,7 +35,7 @@ export const Progress: React.FC<Props> = (Props) => {
   },[currentStep])
   if (Props.Active) { 
     return (
-      <ProgressWrapper Show={Props.Show} className="progress-wrapper extended centered">
+      <ProgressWrapper Show={Props.Show} className="progress-wrapper responsive-extended">
         <div className="steps-group ">
           <div className="step-group">
             <StyledStep className="step" stepId={0} current={step}>1</StyledStep>

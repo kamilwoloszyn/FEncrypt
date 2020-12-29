@@ -2,14 +2,14 @@ import React,{useEffect} from "react";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
-import '../styles/scss/uploader.scss';
-import '../styles/scss/shared/modal.scss';
-import '../styles/scss/shared/responsive.scss';
 import DatabaseCloud from '../images/database-cloud.png';
 import FileIcon from '../images/file.png';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
+import '../styles/scss/uploader.scss';
+import '../styles/scss/shared/modal.scss';
+import '../styles/scss/shared/responsive.scss';
 
 interface Props {
   Active: boolean;

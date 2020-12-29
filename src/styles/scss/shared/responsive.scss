@@ -9,10 +9,11 @@
     max-width: 30vw;
     height: auto;
 }
-.centered { 
-    align-items: center;
+
+.responsive-extended {
+    width: 100%;
 }
 
-.extended {
-    width: 100%;
+.responsive-justify-center{
+    justify-content: center;
 }

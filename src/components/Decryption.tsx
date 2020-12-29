@@ -1,16 +1,17 @@
-import '../styles/scss/shared/forms.scss'
 import React,{useEffect, useRef,useContext} from "react";
 import styled from "styled-components";
 import { OptionButton } from '../styles/buttons';
-import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
+import { FormLabelBlock, FormInputBlock } from '../styles/forms';
 import { Link } from 'react-router-dom';
-import '../styles/scss/encrypt.scss';
-import '../styles/scss/shared/text.scss';
-import { Col } from '../styles/layout/layout'; 
-import '../styles/scss/shared/modal.scss';
+import { Col,Row } from '../styles/layout/layout'; 
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
 import { PasswordContext, PasswordState, ActionToDo,ActionToDoContext } from '../context/context';
+import '../styles/scss/shared/modal.scss';
+import '../styles/scss/shared/responsive.scss';
+import '../styles/scss/encrypt.scss';
+import '../styles/scss/shared/text.scss';
+import '../styles/scss/shared/forms.scss';
 
 const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
 ${({Show})=> Show? 'display:block':''}
@@ -44,26 +45,21 @@ export const Decryption: React.FC<Props> = (Props) => {
          <div className="component-header">
            Decryption
          </div>
-         <Col>
-           <div className="modal-theme">
+         <Row>
+           <div className="modal-theme centered">
               <form>
-           <FormGroup>
              <FormLabelBlock>
                 <label htmlFor="pass">Enter password used to encrypt file</label>
              </FormLabelBlock>
              <FormInputBlock>
                    <input type="password" placeholder="Enter password here" className="form-input" ref={passwordRef} onChange={handleChangePassword}/>
               </FormInputBlock>
-           </FormGroup>
             <Link to="/send"> <OptionButton type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
              </form>
            </div>
-           <div>
-             addadads
-           </div>
-           </Col>
-        </DecryptionWrapper>
-    
+         </Row>
+
+        </DecryptionWrapper> 
   )
   } else { 
     return (

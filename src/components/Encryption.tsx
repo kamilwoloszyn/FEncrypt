@@ -1,16 +1,17 @@
-import '../styles/scss/shared/forms.scss';
 import React,{useEffect,useRef,useContext} from "react";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
-import { FormGroup, FormLabelBlock, FormInputBlock } from '../styles/forms';
+import {FormLabelBlock, FormInputBlock } from '../styles/forms';
 import { Link } from 'react-router-dom';
-import '../styles/scss/encrypt.scss';
-import '../styles/scss/shared/text.scss';
-import '../styles/scss/shared/modal.scss';
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
 import { PasswordContext, PasswordState, ActionToDo,ActionToDoContext } from '../context/context';
+import '../styles/scss/encrypt.scss';
+import '../styles/scss/shared/text.scss';
+import '../styles/scss/shared/modal.scss';
+import '../styles/scss/shared/responsive.scss';
+import '../styles/scss/shared/forms.scss';
 
 const EncryptionWrapper = styled.div<EncryptionWrapperProps>`
 display:${({ Show }) => Show ? 'block':'none'}
@@ -46,13 +47,12 @@ export const Encryption: React.FC<Props> = (Props) => {
     return (
       <EncryptionWrapper Show={Props.Show} > 
            <Row>
-            <Col className="component-header">
+            <div className="component-header">
               Encryption
-            </Col>
+            </div>
           </Row>
+        <Col className="responsive-justify-center">
           <div className="modal-theme">
-            <Row>
-              <FormGroup>
                 <form>
                     <FormLabelBlock>
                       <label htmlFor="encryptpassword">Enter password you want to decrypt file later.</label>
@@ -63,11 +63,9 @@ export const Encryption: React.FC<Props> = (Props) => {
                     <Link to="/send">
                       <OptionButton type="button" customColor={"#fff"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt !</OptionButton>
                     </Link>
-                </form>
-              </FormGroup>
-            </Row>
+                </form>          
           </div>
-         
+        </Col>
         </EncryptionWrapper>
       )
   } else { 
