@@ -2,7 +2,7 @@ import React,{useEffect,useContext} from "react";
 import styled from 'styled-components'
 import {useDispatch} from 'react-redux'
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState,ActionToDoContext, ActionToDo } from '../context/context';
+import { PasswordContext, PasswordState,ActionToDoContext, ActionToDo,FileUploadContext } from '../context/context';
 
 interface Props {
   Active: boolean;
@@ -21,10 +21,16 @@ export const Send: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   const globalPassword: PasswordState = useContext(PasswordContext);
   const globalAction: ActionToDo = useContext(ActionToDoContext);
+  const globalFile  = useContext(FileUploadContext);
 
-  useEffect(() => {
-    dispatch(SetStep(2))
-  })
+    useEffect(() => {
+      dispatch(SetStep(2))
+    })
+  
+    useEffect(() => {
+        console.log(globalFile?.usedFile)
+      })
+  
 
   if (Props.Active) {
     return (
