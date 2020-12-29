@@ -6,8 +6,8 @@ export interface PasswordState {
 }
 
 export interface ActionToDo {
-  type: string;
-  SetType: React.Dispatch<React.SetStateAction<string>>;
+  usedContext: string;
+  SetUsedContext: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const initialState: PasswordState=  {
@@ -16,8 +16,8 @@ const initialState: PasswordState=  {
 }
 
 const initialStateActionToDo: ActionToDo = { 
-  type: "",
-  SetType: ()=> console.warn("")
+  usedContext: "",
+  SetUsedContext: ()=> console.warn("")
 }
 
 export const PasswordContext = createContext<PasswordState>(initialState)

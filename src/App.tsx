@@ -8,10 +8,11 @@ import { Send } from './components/Send';
 import { Col, Row,Container } from './styles/layout/layout';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './styles/scss/main.scss';
-import { PasswordContext } from './context/context';
+import { PasswordContext, ActionToDoContext } from './context/context';
 
 export const App: React.FC = (ContainerOption) => {
   const [usedPassword, SetUsedPassword] = useState<string>("");
+  const [usedContext, SetUsedContext] = useState<string>("");
 
   return (
     <Container DisplayFlex={true} className="main-wrapper">
@@ -26,11 +27,13 @@ export const App: React.FC = (ContainerOption) => {
       </Row>
       <Row>
         <Router>
-          <PasswordContext.Provider value={{usedPassword, SetUsedPassword }}>
-            <Route path="/" exact render={() => <Uploader Active={true} Show={true}/>} />
-            <Route path="/encrypt" render={() => <Encryption Active={true} Show={true}/>} />
-            <Route path="/decrypt" render={ ()=> <Decryption Active={true} Show={true} />}/>
-            <Route path="/send" render={() => <Send Active={true} Show={true} />}/>
+          <PasswordContext.Provider value={{ usedPassword, SetUsedPassword }}>
+            <ActionToDoContext.Provider value={{usedContext,SetUsedContext}}>
+              <Route path="/" exact render={() => <Uploader Active={true} Show={true}/>} />
+              <Route path="/encrypt" render={() => <Encryption Active={true} Show={true}/>} />
+              <Route path="/decrypt" render={ ()=> <Decryption Active={true} Show={true} />}/>
+              <Route path="/send" render={() => <Send Active={true} Show={true} />}/>
+            </ActionToDoContext.Provider>
           </PasswordContext.Provider>       
         </Router>
       </Row>
