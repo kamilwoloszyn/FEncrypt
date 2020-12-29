@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Row } from '../../styles/layout/layout'
-import '../../styles/scss/banner.scss'
-import LogoImg from '../../images/FEncrypt_logo.png';
-
+import { Row } from '../../styles/layout/layout';
+import '../../styles/scss/banner.scss';
+import '../../styles/scss/shared/text.scss';
 
 interface BannerWrapperProps { 
   Show: boolean; 
@@ -21,8 +20,8 @@ ${({ ExtendedWidth }) => ExtendedWidth ? 'width: 100%;' : ''}
 export const Banner: React.FC<Props>  = (Props) => { 
   return ( 
     <BannerWrapper Show={Props.ShowBanner} ExtendedWidth={true}>
-      <Row>
-        <img src={LogoImg} alt="logo" />
+      <Row className="component-header">
+       <h1>FEncrypt &amp; Decrypt</h1> 
       </Row>
     </BannerWrapper>
   )
