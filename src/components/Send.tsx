@@ -2,7 +2,7 @@ import React,{useEffect,useContext} from "react";
 import styled from 'styled-components'
 import {useDispatch} from 'react-redux'
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState } from '../context/PasswordContext';
+import { PasswordContext, PasswordState } from '../context/context';
 
 interface Props {
   Active: boolean;

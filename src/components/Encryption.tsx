@@ -10,7 +10,7 @@ import '../styles/scss/shared/text.scss';
 import '../styles/scss/shared/modal.scss';
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState } from '../context/PasswordContext';
+import { PasswordContext, PasswordState } from '../context/context';
 
 const EncryptionWrapper = styled.div<EncryptionWrapperProps>`
 display:${({ Show }) => Show ? 'block':'none'}

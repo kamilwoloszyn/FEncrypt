@@ -10,7 +10,7 @@ import { Col } from '../styles/layout/layout';
 import '../styles/scss/shared/modal.scss';
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState } from '../context/PasswordContext';
+import { PasswordContext, PasswordState } from '../context/context';
 
 const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
 ${({Show})=> Show? 'display:block':''}
