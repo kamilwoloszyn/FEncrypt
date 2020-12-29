@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { OptionButton } from '../styles/buttons';
 import { FormLabelBlock, FormInputBlock } from '../styles/forms';
 import { Link } from 'react-router-dom';
-import { Col,Row } from '../styles/layout/layout'; 
+import { Row } from '../styles/layout/layout'; 
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
 import { PasswordContext, PasswordState, ActionToDo,ActionToDoContext } from '../context/context';
