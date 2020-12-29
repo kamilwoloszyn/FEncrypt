@@ -2,7 +2,7 @@ import React,{useEffect,useContext} from "react";
 import styled from 'styled-components'
 import {useDispatch} from 'react-redux'
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState } from '../context/context';
+import { PasswordContext, PasswordState,ActionToDoContext, ActionToDo } from '../context/context';
 
 interface Props {
   Active: boolean;
@@ -20,6 +20,8 @@ display:${({Show})=> Show? 'block':'none'}
 export const Send: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   const globalPassword: PasswordState = useContext(PasswordContext);
+  const globalAction: ActionToDo = useContext(ActionToDoContext);
+
   useEffect(() => {
     dispatch(SetStep(2))
   })
@@ -27,7 +29,7 @@ export const Send: React.FC<Props> = (Props) => {
   if (Props.Active) {
     return (
       <SendWrapper Show={Props.Show}>
-        To Send : {globalPassword.usedPassword}
+        This data will be send to server : {globalPassword.usedPassword} {globalAction.usedContext}
       </SendWrapper>
   )
   } else {
