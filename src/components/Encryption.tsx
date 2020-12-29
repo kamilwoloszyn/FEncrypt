@@ -1,5 +1,5 @@
 import '../styles/scss/shared/forms.scss';
-import React,{useEffect,useRef} from "react";
+import React,{useEffect,useRef,useContext} from "react";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
@@ -10,6 +10,7 @@ import '../styles/scss/shared/text.scss';
 import '../styles/scss/shared/modal.scss';
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
+import { PasswordContext, PasswordState } from '../context/PasswordContext';
 
 const EncryptionWrapper = styled.div<EncryptionWrapperProps>`
 display:${({ Show }) => Show ? 'block':'none'}
@@ -26,6 +27,14 @@ interface Props {
 export const Encryption: React.FC<Props> = (Props) => {
   const passwordRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
+  const globalPassword: PasswordState = useContext(PasswordContext);
+  
+  const handleChangePassword = () => { 
+    if (passwordRef.current) {
+      globalPassword.SetUsedPassword(passwordRef.current.value)
+    } 
+  }
+
   useEffect(() => {
     dispatch(SetStep(1))
   })
@@ -43,10 +52,10 @@ export const Encryption: React.FC<Props> = (Props) => {
               <FormGroup>
                 <form>
                     <FormLabelBlock>
-                        <label htmlFor="encryptpassword">Enter password you want to decrypt file later.</label>
-                      </FormLabelBlock>
+                      <label htmlFor="encryptpassword">Enter password you want to decrypt file later.</label>
+                    </FormLabelBlock>
                     <FormInputBlock>
-                        <input type="text" name="encryptpassword" className="form-input" placeholder="Enter your password here" ref={passwordRef} />
+                        <input type="text" name="encryptpassword" className="form-input" onChange={handleChangePassword} placeholder="Enter your password here" ref={passwordRef} />
                     </FormInputBlock>
                     <Link to="/send">
                       <OptionButton type="button" customColor={"#fff"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt !</OptionButton>

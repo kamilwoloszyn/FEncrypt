@@ -1,7 +1,13 @@
-import { createContext } from 'react';
+import { createContext, useState} from 'react';
 
-interface PasswordState {
+export interface PasswordState {
   usedPassword: string,
   SetUsedPassword: React.Dispatch<React.SetStateAction<string>>
 } 
-export const PasswordContext = createContext<PasswordState | null>(null)
+
+const initialState: PasswordState=  {
+  usedPassword: "",
+  SetUsedPassword: ()=> console.warn("No SetUsedPassword provided.")
+}
+
+export const PasswordContext = createContext<PasswordState>(initialState)
