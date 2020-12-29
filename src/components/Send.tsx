@@ -2,7 +2,9 @@ import React,{useEffect,useContext} from "react";
 import styled from 'styled-components'
 import {useDispatch} from 'react-redux'
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState,ActionToDoContext, ActionToDo,FileUploadContext } from '../context/context';
+import { PasswordContext, PasswordState, ActionToDoContext, ActionToDo, FileUploadContext } from '../context/context';
+import { Col } from '../styles/layout/layout';
+import '../styles/scss/shared/modal.scss';
 
 interface Props {
   Active: boolean;
@@ -35,7 +37,13 @@ export const Send: React.FC<Props> = (Props) => {
   if (Props.Active) {
     return (
       <SendWrapper Show={Props.Show}>
-        This data will be send to server : {globalPassword.usedPassword} {globalAction.usedContext}
+        <Col className="responsive-justify-center">
+          <div className="modal-theme">
+            This data will be send to server : <b> {globalPassword.usedPassword} {globalAction.usedContext}</b>
+          </div>
+        </Col>
+        
+        
       </SendWrapper>
   )
   } else {
