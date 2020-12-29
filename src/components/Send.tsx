@@ -1,7 +1,8 @@
-import React,{useEffect} from "react";
+import React,{useEffect,useContext} from "react";
 import styled from 'styled-components'
 import {useDispatch} from 'react-redux'
 import { SetStep } from '../redux/action';
+import { PasswordContext, PasswordState } from '../context/PasswordContext';
 
 interface Props {
   Active: boolean;
@@ -15,15 +16,18 @@ interface SendWrapperProps {
 const SendWrapper = styled.div<SendWrapperProps>`
 display:${({Show})=> Show? 'block':'none'}
 `
+
 export const Send: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
+  const globalPassword: PasswordState = useContext(PasswordContext);
   useEffect(() => {
     dispatch(SetStep(2))
   })
+
   if (Props.Active) {
     return (
       <SendWrapper Show={Props.Show}>
-        <h1> Hello from Send module</h1>
+        To Send : {globalPassword.usedPassword}
       </SendWrapper>
   )
   } else {
