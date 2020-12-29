@@ -34,7 +34,6 @@ export const Uploader: React.FC<Props> = (Props) => {
     if (e.target.files != null) {
       console.log(e.target.files[0])
     }
-    
   }
   
   if (Props.Active) {

@@ -24,6 +24,7 @@ interface Props {
   Active: boolean;
   Show: boolean;
 }
+
 export const Decryption: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   const passwordRef = useRef<HTMLInputElement>(null);
