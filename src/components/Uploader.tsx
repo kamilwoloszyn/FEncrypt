@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useEffect,useRef} from "react";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
@@ -24,10 +24,18 @@ const UploadWrapper = styled.div<UploadWrapperProps>`
   ${({ Show }) => Show ? '':'display:none'}
 `
 export const Uploader: React.FC<Props> = (Props) => {
+  const fileToUpload = useRef(null);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(SetStep(0))
   })
+
+  const HandleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files != null) {
+      console.log(e.target.files[0])
+    }
+    
+  }
   
   if (Props.Active) {
     return (
@@ -40,7 +48,7 @@ export const Uploader: React.FC<Props> = (Props) => {
             <div className="modal-item">
               <form>
                 <label htmlFor="styleupload" ><img src={FileIcon} alt="fileicon"/></label>
-                <input type="file" name="filetoupload" id="styleupload" />
+                <input type="file" name="filetoupload" accept="image/*,*.doc,text/plain " id="styleupload" ref={fileToUpload} onChange={HandleFileUpload}/>
               </form>
             </div>
           <div className="modal-item">
