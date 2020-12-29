@@ -1,8 +1,9 @@
 import React,{useState, useEffect} from "react";
 import styled from 'styled-components';
-import '../../styles/scss/progress.scss';
 import { useSelector } from "react-redux";
 import { StepState } from '../../redux/reducer';
+import '../../styles/scss/progress.scss';
+import '../../styles/scss/shared/responsive.scss'
 
 interface Props { 
   Active: boolean;
@@ -34,8 +35,8 @@ export const Progress: React.FC<Props> = (Props) => {
   },[currentStep])
   if (Props.Active) { 
     return (
-      <ProgressWrapper Show={Props.Show} className="progress-wrapper">
-        <div className="steps-group">
+      <ProgressWrapper Show={Props.Show} className="progress-wrapper extended centered">
+        <div className="steps-group ">
           <div className="step-group">
             <StyledStep className="step" stepId={0} current={step}>1</StyledStep>
           </div>
