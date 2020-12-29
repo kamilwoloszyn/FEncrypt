@@ -1,4 +1,4 @@
-import React,{useEffect,useRef} from "react";
+import React,{useContext, useEffect,useRef} from "react";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
@@ -7,6 +7,7 @@ import FileIcon from '../images/file.png';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
+import { FileUploadContext, FileState } from '../context/context';
 import '../styles/scss/uploader.scss';
 import '../styles/scss/shared/modal.scss';
 import '../styles/scss/shared/responsive.scss';
@@ -25,6 +26,7 @@ const UploadWrapper = styled.div<UploadWrapperProps>`
 `
 export const Uploader: React.FC<Props> = (Props) => {
   const fileToUpload = useRef(null);
+  const globalFile:  FileState | undefined = useContext(FileUploadContext);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(SetStep(0))
@@ -32,7 +34,7 @@ export const Uploader: React.FC<Props> = (Props) => {
 
   const HandleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files != null) {
-      console.log(e.target.files[0])
+      globalFile?.SetUsedFile(e.target.files[0])
     }
   }
   
