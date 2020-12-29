@@ -6,8 +6,8 @@ export interface PasswordState {
 }
 
 export interface ActionToDo {
-  encrypt: boolean;
-  decrypt: boolean;
+  type: string;
+  SetType: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const initialState: PasswordState=  {
@@ -16,9 +16,9 @@ const initialState: PasswordState=  {
 }
 
 const initialStateActionToDo: ActionToDo = { 
-  encrypt: false,
-  decrypt: false
+  type: "",
+  SetType: ()=> console.warn("")
 }
 
 export const PasswordContext = createContext<PasswordState>(initialState)
-export const ActionToDoContext = createContext<ActionToDo>(initialStateActionToDo)
+export const ActionToDoContext = createContext<ActionToDo>(initialStateActionToDo);
