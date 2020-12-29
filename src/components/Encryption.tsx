@@ -10,7 +10,7 @@ import '../styles/scss/shared/text.scss';
 import '../styles/scss/shared/modal.scss';
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState } from '../context/context';
+import { PasswordContext, PasswordState, ActionToDo,ActionToDoContext } from '../context/context';
 
 const EncryptionWrapper = styled.div<EncryptionWrapperProps>`
 display:${({ Show }) => Show ? 'block':'none'}
@@ -28,6 +28,8 @@ export const Encryption: React.FC<Props> = (Props) => {
   const passwordRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch();
   const globalPassword: PasswordState = useContext(PasswordContext);
+  const globalAction: ActionToDo = useContext(ActionToDoContext);
+
   
   const handleChangePassword = () => { 
     if (passwordRef.current) {
@@ -36,7 +38,8 @@ export const Encryption: React.FC<Props> = (Props) => {
   }
 
   useEffect(() => {
-    dispatch(SetStep(1))
+    dispatch(SetStep(1));
+    globalAction.SetUsedContext("encrypt");
   })
   
   if (Props.Active) {

@@ -10,7 +10,7 @@ import { Col } from '../styles/layout/layout';
 import '../styles/scss/shared/modal.scss';
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState } from '../context/context';
+import { PasswordContext, PasswordState, ActionToDo,ActionToDoContext } from '../context/context';
 
 const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
 ${({Show})=> Show? 'display:block':''}
@@ -26,14 +26,16 @@ interface Props {
 export const Decryption: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   const passwordRef = useRef<HTMLInputElement>(null);
-  const globalPassword : PasswordState= useContext(PasswordContext);
+  const globalPassword: PasswordState = useContext(PasswordContext);
+  const globalAction: ActionToDo = useContext(ActionToDoContext); 
   const handleChangePassword = () => { 
     if (passwordRef.current) {
       globalPassword.SetUsedPassword(passwordRef.current.value)
     } 
   }
   useEffect(() => {
-    dispatch(SetStep(1))
+    dispatch(SetStep(1)); 
+    globalAction.SetUsedContext("decrypt");
   })
 
   if (Props.Active) {
