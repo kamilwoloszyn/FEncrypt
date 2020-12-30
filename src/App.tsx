@@ -10,14 +10,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { PasswordContext, ActionToDoContext, FileUploadContext } from './context/context';
 import './styles/scss/main.scss';
 
-
 export const App: React.FC = (ContainerOption) => {
   const [usedPassword, SetUsedPassword] = useState<string>("");
   const [usedContext, SetUsedContext] = useState<string>("");
   const [usedFile, SetUsedFile] = useState<File| undefined>(undefined);
   return (
-    <Container DisplayFlex={true} className="main-wrapper">
-      <div className="main-bg"></div>
+    <Container DisplayFlex={true} className="main-wrapper main-bg">
       <Row>
         <Col>
           <Banner ShowBanner={true} />
