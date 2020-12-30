@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row } from '../../styles/layout/layout';
-import '../../styles/scss/banner.scss';
 import '../../styles/scss/shared/text.scss';
 import '../../styles/scss/shared/responsive.scss';
 

@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
 import { PasswordContext, PasswordState, ActionToDo, ActionToDoContext } from '../context/context';
 import { Warning } from '../styles/modal';
-import '../styles/scss/encrypt.scss';
 import '../styles/scss/shared/text.scss';
 import '../styles/scss/shared/modal.scss';
 import '../styles/scss/shared/responsive.scss';

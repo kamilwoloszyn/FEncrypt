@@ -10,7 +10,6 @@ import { PasswordContext, PasswordState, ActionToDo, ActionToDoContext } from '.
 import { Warning } from '../styles/modal';
 import '../styles/scss/shared/modal.scss';
 import '../styles/scss/shared/responsive.scss';
-import '../styles/scss/encrypt.scss';
 import '../styles/scss/shared/text.scss';
 import '../styles/scss/shared/forms.scss';
 
