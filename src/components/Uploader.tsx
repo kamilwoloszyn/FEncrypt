@@ -1,11 +1,11 @@
-import React,{useContext, useEffect,useRef} from "react";
+import React,{useContext, useEffect,useRef,useState} from "react";
 import styled from 'styled-components';
 import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
 import DatabaseCloud from '../images/database-cloud.png';
 import FileIcon from '../images/file.png';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useStore } from 'react-redux';
 import { SetStep } from '../redux/action';
 import { FileUploadContext, FileState } from '../context/context';
 import '../styles/scss/uploader.scss';
@@ -26,7 +26,10 @@ const UploadWrapper = styled.div<UploadWrapperProps>`
 `
 export const Uploader: React.FC<Props> = (Props) => {
   const fileToUpload = useRef(null);
-  const globalFile:  FileState | undefined = useContext(FileUploadContext);
+  const globalFile: FileState | undefined = useContext(FileUploadContext);
+  const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
+  const linkEncrypt = "/encrypt";
+  const linkDecrypt = "/decrypt";
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(SetStep(0))
@@ -35,6 +38,7 @@ export const Uploader: React.FC<Props> = (Props) => {
   const HandleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files != null) {
       globalFile?.SetUsedFile(e.target.files[0])
+      setButtonDisabled(false);
     }
   }
   
@@ -56,8 +60,8 @@ export const Uploader: React.FC<Props> = (Props) => {
             Then select Encrypt or Decrypt operation
           </div>
           <Col className="modal-item modal-centered">
-            <Link to="/encrypt"> <OptionButton type="button" customColor={"#38b13b"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt </OptionButton> </Link> 
-            <Link to="/decrypt"><OptionButton type="button" customColor={"#e63a2a"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt </OptionButton></Link> 
+              <Link to={buttonDisabled?'#':linkEncrypt}> <OptionButton disabled={buttonDisabled} type="button" customColor={"#38b13b"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt </OptionButton> </Link> 
+              <Link to={buttonDisabled?'#':linkDecrypt}><OptionButton disabled={buttonDisabled} type="button" customColor={"#e63a2a"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt </OptionButton></Link> 
           </Col>
           </Row>
           <div>
@@ -75,4 +79,6 @@ export const Uploader: React.FC<Props> = (Props) => {
   }
 }
 
+// TODO:
+// VALIDATION
 

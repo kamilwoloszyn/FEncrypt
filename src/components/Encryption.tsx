@@ -75,6 +75,9 @@ export const Encryption: React.FC<Props> = (Props) => {
       </div>
     )
   }
- 
 } 
+
+// TODO:
+// -ADD VALIDATION 
+// - REMOVE HOTLINK
 

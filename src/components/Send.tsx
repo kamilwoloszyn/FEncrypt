@@ -55,3 +55,6 @@ export const Send: React.FC<Props> = (Props) => {
   }
   
 }
+
+//TODO:
+// - REMOVE HOTLINKS

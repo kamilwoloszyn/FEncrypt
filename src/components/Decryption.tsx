@@ -72,6 +72,8 @@ export const Decryption: React.FC<Props> = (Props) => {
  
 }
 
-
+// TODO:
+// - ADD VALIDATION
+// - REMOVE HOTLINK
 
 
