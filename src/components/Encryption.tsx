@@ -4,7 +4,7 @@ import { Row, Col } from '../styles/layout/layout';
 import { OptionButton } from '../styles/buttons';
 import {FormLabelBlock, FormInputBlock } from '../styles/forms';
 import { Link } from 'react-router-dom';
-import { useDispatch, useStore } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
 import { PasswordContext, PasswordState, ActionToDo,ActionToDoContext } from '../context/context';
 import '../styles/scss/encrypt.scss';

@@ -5,7 +5,7 @@ import { OptionButton } from '../styles/buttons';
 import DatabaseCloud from '../images/database-cloud.png';
 import FileIcon from '../images/file.png';
 import { Link } from 'react-router-dom';
-import { useDispatch, useStore } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
 import { FileUploadContext, FileState } from '../context/context';
 import '../styles/scss/uploader.scss';
