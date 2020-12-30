@@ -38,8 +38,8 @@ export const Send: React.FC<Props> = (Props) => {
     return (
       <SendWrapper Show={Props.Show}>
         <Col className="responsive-justify-center">
-          <div className="modal-theme">
-            This data will be send to server : <b> {globalPassword.usedPassword} {globalAction.usedContext}</b>
+          <div className="modal-theme-default">
+            This data will be sent to server : <b> {globalPassword.usedPassword} {globalAction.usedContext}</b>
           </div>
         </Col>
         

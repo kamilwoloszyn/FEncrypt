@@ -8,8 +8,7 @@ body {
   min-width: 320px;
   min-height: 640px;
   box-sizing: border-box;
-  background: rgb(232,165,102);
-  background: linear-gradient(149deg, rgba(232,165,102,1) 0%, rgba(215,202,173,1) 100%);
+  background-color: rgb(255, 255, 240);
   background-repeat: no-repeat;
 }
 
