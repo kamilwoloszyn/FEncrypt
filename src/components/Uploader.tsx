@@ -44,9 +44,9 @@ export const Uploader: React.FC<Props> = (Props) => {
   
   if (Props.Active) {
     return (
-      <UploadWrapper Show={Props.Show} >
+      <UploadWrapper Show={Props.Show}>
         <Col className="responsive-flexbox item-wrapper">
-          <Row className="modal-theme">
+          <Row className="modal-theme-default">
             <div className="modal-item">
              First, click to Upload icon
             </div>

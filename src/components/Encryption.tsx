@@ -58,7 +58,7 @@ export const Encryption: React.FC<Props> = (Props) => {
             </div>
           </Row>
         <Col className="responsive-justify-center">
-          <div className="modal-theme">
+          <div className="modal-theme-default">
                 <form>
                     <FormLabelBlock>
                       <label htmlFor="encryptpassword">Enter password you want to decrypt file later.</label>
@@ -74,7 +74,7 @@ export const Encryption: React.FC<Props> = (Props) => {
         </Col>
         <Col className="responsive-justify-center">
         <div>
-            <Warning show={disabledButton} className="modal-theme">
+            <Warning show={disabledButton} className="modal-theme-error">
               For security reasons : 
                <ul>
                 <li>Password should contain at least 6 characters</li>

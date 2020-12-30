@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { OptionButton } from '../styles/buttons';
 import { FormLabelBlock, FormInputBlock } from '../styles/forms';
 import { Link } from 'react-router-dom';
-import { Row } from '../styles/layout/layout'; 
+import { Col } from '../styles/layout/layout'; 
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
 import { PasswordContext, PasswordState, ActionToDo, ActionToDoContext } from '../context/context';
@@ -15,7 +15,7 @@ import '../styles/scss/shared/text.scss';
 import '../styles/scss/shared/forms.scss';
 
 const DecryptionWrapper = styled.div<DecryptionWrapperProps>`
-${({Show})=> Show? 'display:block':''}
+${({Show})=> Show? '':'display:none'}
 `
 interface DecryptionWrapperProps {
   Show: boolean
@@ -52,8 +52,8 @@ export const Decryption: React.FC<Props> = (Props) => {
          <div className="component-header">
            Decryption
          </div>
-         <Row>
-           <div className="modal-theme centered">
+         <Col className="responsive-justify-center responsive-block">
+           <div className="modal-theme-default">
               <form>
              <FormLabelBlock>
                 <label htmlFor="pass">Enter password used to encrypt file</label>
@@ -64,13 +64,16 @@ export const Decryption: React.FC<Props> = (Props) => {
                <Link to={buttonDisabled? '#': sendLink}> <OptionButton disabled={buttonDisabled} type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
              </form>
            </div>
-         </Row>
-          <Warning show={buttonDisabled}> 
-          For security reasons : 
-                <ul>
-                  <li>Password should contain at least 6 characters</li>
-                </ul>
-          </Warning>
+         </Col>
+         <Col className="responsive-justify-center responsive-block">
+           <Warning show={buttonDisabled} className="modal-theme-error"> 
+            For security reasons : 
+                  <ul>
+                    <li>Password should contain at least 6 characters</li>
+                  </ul>
+            </Warning>
+         </Col>
+         
         </DecryptionWrapper> 
   )
   } else { 
