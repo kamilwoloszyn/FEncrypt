@@ -79,6 +79,3 @@ export const Uploader: React.FC<Props> = (Props) => {
   }
 }
 
-// TODO:
-// VALIDATION
-
