@@ -42,8 +42,6 @@ export const Send: React.FC<Props> = (Props) => {
             This data will be sent to server : <b> {globalPassword.usedPassword} {globalAction.usedContext}</b>
           </div>
         </Col>
-        
-        
       </SendWrapper>
   )
   } else {
@@ -53,7 +51,6 @@ export const Send: React.FC<Props> = (Props) => {
       </div>
     )
   }
-  
 }
 
 //TODO:
