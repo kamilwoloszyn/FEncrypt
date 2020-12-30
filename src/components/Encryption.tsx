@@ -32,7 +32,7 @@ export const Encryption: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   const globalPassword: PasswordState = useContext(PasswordContext);
   const globalAction: ActionToDo = useContext(ActionToDoContext);
-  const sendLink: string = "/encrypt";
+  const sendLink: string = "/send";
   const [disabledButton, setDisabledButton] = useState<boolean>(true);
   
   const handleChangePassword = () => { 
