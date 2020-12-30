@@ -59,7 +59,7 @@ export const Uploader: React.FC<Props> = (Props) => {
           <div className="modal-item">
             Then select Encrypt or Decrypt operation
           </div>
-          <Col className="modal-item modal-centered">
+          <Col className="modal-item modal-centered responsive-block">
               <Link to={buttonDisabled?'#':linkEncrypt}> <OptionButton disabled={buttonDisabled} type="button" customColor={"#38b13b"} hoverColor={"#38b13b"} borderColor={"#38b13b"}>Encrypt </OptionButton> </Link> 
               <Link to={buttonDisabled?'#':linkDecrypt}><OptionButton disabled={buttonDisabled} type="button" customColor={"#e63a2a"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt </OptionButton></Link> 
           </Col>

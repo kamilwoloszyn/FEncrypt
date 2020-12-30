@@ -14,6 +14,9 @@ flex-direction:column;
 const Col = styled.div`
 display:flex;
 flex-direction:row;
+@media screen and (max-width:600px) {
+  flex-direction: column;
+}
 `
 export { 
   Row,
