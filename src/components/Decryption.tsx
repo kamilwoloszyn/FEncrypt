@@ -1,4 +1,4 @@
-import React,{useEffect, useRef,useContext} from "react";
+import React,{useEffect, useRef,useContext, useState} from "react";
 import styled from "styled-components";
 import { OptionButton } from '../styles/buttons';
 import { FormLabelBlock, FormInputBlock } from '../styles/forms';
@@ -30,10 +30,14 @@ export const Decryption: React.FC<Props> = (Props) => {
   const passwordRef = useRef<HTMLInputElement>(null);
   const globalPassword: PasswordState = useContext(PasswordContext);
   const globalAction: ActionToDo = useContext(ActionToDoContext); 
+  const [globalButtonState,setGlobalButtonState] = useState<boolean>(true);
   const handleChangePassword = () => { 
-    if (passwordRef.current) {
+    if (passwordRef.current && passwordRef.current.value.length > 6) {
       globalPassword.SetUsedPassword(passwordRef.current.value)
-    } 
+    } else { 
+      setGlobalButtonState(true);
+      // set warning
+    }
   }
   useEffect(() => {
     dispatch(SetStep(1)); 
@@ -55,11 +59,10 @@ export const Decryption: React.FC<Props> = (Props) => {
              <FormInputBlock>
                    <input type="password" placeholder="Enter password here" className="form-input" ref={passwordRef} onChange={handleChangePassword}/>
               </FormInputBlock>
-            <Link to="/send"> <OptionButton type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
+               <Link to="/send"> <OptionButton disabled={globalButtonState} type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
              </form>
            </div>
          </Row>
-
         </DecryptionWrapper> 
   )
   } else { 
