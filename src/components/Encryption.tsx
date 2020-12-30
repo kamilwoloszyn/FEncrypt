@@ -6,7 +6,8 @@ import {FormLabelBlock, FormInputBlock } from '../styles/forms';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState, ActionToDo,ActionToDoContext } from '../context/context';
+import { PasswordContext, PasswordState, ActionToDo, ActionToDoContext } from '../context/context';
+import { Warning } from '../styles/modal';
 import '../styles/scss/encrypt.scss';
 import '../styles/scss/shared/text.scss';
 import '../styles/scss/shared/modal.scss';
@@ -17,9 +18,6 @@ const EncryptionWrapper = styled.div<EncryptionWrapperProps>`
 display:${({ Show }) => Show ? 'block':'none'}
 `
 
-const Warning = styled.div<EncryptionWrapperProps>`
-${({ Show }) => Show ? '':'display:none !important'}
-`
 interface EncryptionWrapperProps {
 Show: boolean
 }
@@ -76,7 +74,7 @@ export const Encryption: React.FC<Props> = (Props) => {
         </Col>
         <Col className="responsive-justify-center">
         <div>
-            <Warning Show={disabledButton} className="modal-theme">
+            <Warning show={disabledButton} className="modal-theme">
               For security reasons : 
                <ul>
                 <li>Password should contain at least 6 characters</li>

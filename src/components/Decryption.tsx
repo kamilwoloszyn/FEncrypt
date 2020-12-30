@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 import { Row } from '../styles/layout/layout'; 
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState, ActionToDo,ActionToDoContext } from '../context/context';
+import { PasswordContext, PasswordState, ActionToDo, ActionToDoContext } from '../context/context';
+import { Warning } from '../styles/modal';
+
 import '../styles/scss/shared/modal.scss';
 import '../styles/scss/shared/responsive.scss';
 import '../styles/scss/encrypt.scss';
@@ -36,7 +38,6 @@ export const Decryption: React.FC<Props> = (Props) => {
       globalPassword.SetUsedPassword(passwordRef.current.value)
     } else { 
       setGlobalButtonState(true);
-      // set warning
     }
   }
   useEffect(() => {
@@ -63,6 +64,12 @@ export const Decryption: React.FC<Props> = (Props) => {
              </form>
            </div>
          </Row>
+          <Warning show={globalButtonState}> 
+          For security reasons : 
+                <ul>
+                  <li>Password should contain at least 6 characters</li>
+                </ul>
+          </Warning>
         </DecryptionWrapper> 
   )
   } else { 
