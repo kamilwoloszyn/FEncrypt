@@ -31,12 +31,14 @@ export const Decryption: React.FC<Props> = (Props) => {
   const passwordRef = useRef<HTMLInputElement>(null);
   const globalPassword: PasswordState = useContext(PasswordContext);
   const globalAction: ActionToDo = useContext(ActionToDoContext); 
-  const [globalButtonState,setGlobalButtonState] = useState<boolean>(true);
+  const [buttonDisabled, SetButtonDisabled] = useState<boolean>(true);
+  const sendLink = "/send";
   const handleChangePassword = () => { 
-    if (passwordRef.current && passwordRef.current.value.length > 6) {
+    if (passwordRef.current && passwordRef.current.value.length > 5) {
       globalPassword.SetUsedPassword(passwordRef.current.value)
+      SetButtonDisabled(false);
     } else { 
-      setGlobalButtonState(true);
+      SetButtonDisabled(true);
     }
   }
   useEffect(() => {
@@ -59,11 +61,11 @@ export const Decryption: React.FC<Props> = (Props) => {
              <FormInputBlock>
                    <input type="password" placeholder="Enter password here" className="form-input" ref={passwordRef} onChange={handleChangePassword}/>
               </FormInputBlock>
-               <Link to="/send"> <OptionButton disabled={globalButtonState} type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
+               <Link to={buttonDisabled? '#': sendLink}> <OptionButton disabled={buttonDisabled} type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
              </form>
            </div>
          </Row>
-          <Warning show={globalButtonState}> 
+          <Warning show={buttonDisabled}> 
           For security reasons : 
                 <ul>
                   <li>Password should contain at least 6 characters</li>
@@ -82,7 +84,6 @@ export const Decryption: React.FC<Props> = (Props) => {
 }
 
 // TODO:
-// - ADD VALIDATION
 // - REMOVE HOTLINK
 
 
