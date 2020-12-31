@@ -1,12 +1,13 @@
 import express from 'express';
+import { PORT, HOST } from './config/server';
 
 const app = express();
-const port = 3000;
+
 app.get('/', (req, res) => {
   res.writeHead(200);
   res.end("Default respond executed");
 })
 
-app.listen(port, "localhost", (() => {
-  console.log(`Server is listening at port ${port}`)
+app.listen(PORT, `${HOST}`, (() => {
+  console.log(`Server is listening at port ${PORT}`)
 }))
