@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "develop": "nodemon src/app.ts"
+    "develop": "nodemon src/app.ts",
+    "debug": "nodemon --inspect src/app.ts"
   },
   "repository": {
     "type": "git",
