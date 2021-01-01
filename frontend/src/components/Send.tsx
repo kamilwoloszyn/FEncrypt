@@ -32,31 +32,15 @@ export const Send: React.FC<Props> = (Props) => {
   
   useEffect(() => {
     if (globalFile?.usedFile !== undefined && globalPassword.usedPassword && globalAction.usedContext) {
-      console.log("Data should be emitted! ");
-      switch (globalAction.usedContext) {
-        case "encrypt": {
-          const socket = socketIOClient(EndPoint);
-          socket.on('connection', (sock: SocketIOClient.Socket) => {
-            sock.emit('data-client', {
-              password: globalPassword.usedPassword,
-              file: globalFile.usedFile,
-            })
-          })
-        }
-          break;
-        case "decrypt": {
-          const socket = socketIOClient(EndPoint);
-          socket.emit('data-client', {
-            password: globalPassword,
-            file: globalFile
-          })
-        }
-          break;
-        default: {
-          console.log("Operation not recognised")
-          console.log(globalAction);
-          } 
-        }
+      const socket = socketIOClient(EndPoint);
+      socket.on('connection', (sock: SocketIOClient.Socket) => {
+        sock.emit('data-client', {
+          password: globalPassword.usedPassword,
+          file: globalFile.usedFile,
+          context: globalAction.usedContext
+        })
+      })
+      
     } else { 
       console.log("Found empty object");
       console.log(globalAction);
