@@ -37,7 +37,7 @@ export const Send: React.FC<Props> = (Props) => {
       switch (globalAction.usedContext) {
         case 'encrypt': {
           const socket = socketIOClient(EncryptPoint);
-          socket.on("connection", (sock: SocketIOClient.Socket) =>{
+          socket.on("connection", (sock: SocketIOClient.Socket) => {
             socket.emit('data-client', {
               password: globalPassword,
               file: globalFile,
@@ -45,13 +45,15 @@ export const Send: React.FC<Props> = (Props) => {
           })
          
         }
-          case 'decrypt': { 
+          break;
+        case 'decrypt': {
           const socket = socketIOClient(DecryptPoint);
           socket.emit('data-client', {
             password: globalPassword,
-            file : globalFile
+            file: globalFile
           })
         }
+          break;
         default: {
           console.log("Operation not recognised")
           } 
