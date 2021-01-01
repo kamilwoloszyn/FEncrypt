@@ -6,7 +6,6 @@ import { SetStep } from '../redux/action';
 import { PasswordContext, PasswordState, ActionToDoContext, ActionToDo, FileUploadContext } from '../context/context';
 import { Col } from '../styles/layout/layout';
 import '../styles/scss/shared/modal.scss';
-import { Socket } from "socket.io-client";
 
 interface Props {
   Active: boolean;
@@ -16,8 +15,7 @@ interface Props {
 interface SendWrapperProps { 
   Show: boolean;
 }
-const EncryptPoint = "http://localhost:3001/encrypt"
-const DecryptPoint = "http://localhost:3001/decrypt"
+const EndPoint = "http://localhost:3001"
 const SendWrapper = styled.div<SendWrapperProps>`
 display:${({Show})=> Show? 'block':'none'}
 `
@@ -30,24 +28,25 @@ export const Send: React.FC<Props> = (Props) => {
 
     useEffect(() => {
       dispatch(SetStep(2))
-    })
+    },[dispatch])
   
   useEffect(() => {
-    if (globalPassword && globalAction && globalFile) {
+    if (globalFile?.usedFile !== undefined && globalPassword.usedPassword && globalAction.usedContext) {
+      console.log("Data should be emitted! ");
       switch (globalAction.usedContext) {
-        case 'encrypt': {
-          const socket = socketIOClient(EncryptPoint);
-          socket.on("connection", (sock: SocketIOClient.Socket) => {
-            socket.emit('data-client', {
-              password: globalPassword,
-              file: globalFile,
+        case "encrypt": {
+          const socket = socketIOClient(EndPoint);
+          socket.on('connection', (sock: SocketIOClient.Socket) => {
+            
+            sock.emit('data-client', {
+              password: globalPassword.usedPassword,
+              file: globalFile.usedFile,
             })
           })
-         
         }
           break;
-        case 'decrypt': {
-          const socket = socketIOClient(DecryptPoint);
+        case "decrypt": {
+          const socket = socketIOClient(EndPoint);
           socket.emit('data-client', {
             password: globalPassword,
             file: globalFile
@@ -56,11 +55,16 @@ export const Send: React.FC<Props> = (Props) => {
           break;
         default: {
           console.log("Operation not recognised")
+          console.log(globalAction);
           } 
         }
+    } else { 
+      console.log("Found empty object");
+      console.log(globalAction);
+      console.log(globalFile);
+      console.log(globalPassword);
       }
-        console.log(globalFile?.usedFile)
-      })
+      },[globalAction,globalFile,globalPassword])
   
 
   if (Props.Active) {

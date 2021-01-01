@@ -1,30 +1,14 @@
-import express,{Express} from 'express';
-import bodyParser from 'body-parser';
-import * as  http from 'http';
-import * as socketio from 'socket.io';
-import { PORT, HOST } from './config/server';
-import DecryptionRoute  from './routes/decrypt';
-import EncryptionRoute  from './routes/encrypt';
+import socketio from "socket.io";
+import { PORT } from "./config/server";
 
-const app: Express = express();
-app.set("port", process.env.PORT || PORT);
+const app = require("express")();
+const http = require("http").Server(app);
+const io = require("socket.io")(http)
 
-let httpServer: http.Server = http.createServer(app);
-let io: any = require("socket.io")(httpServer)
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-  res.writeHead(200, { "content-type": "text/plain" });
-  res.end("Default text/plain document");
+io.on("connection", function (socket : socketio.Socket) { 
+  console.log("Connected");
 })
 
-io.on("connection", (socket: socketio.Socket) => {
-  console.log("User connected");
-    // socket.on("")
-    //handle later
+http.listen(process.env.PORT || PORT, function () {
+   console.log(`App now listening at port *.${process.env.PORT || PORT}`)
 })
-
-const server = httpServer.listen(process.env.PORT || PORT, (() => {
-  console.log(`Listening on *:${process.env.PORT || PORT}`)
-}))
