@@ -1,6 +1,6 @@
 import * as socketio from 'socket.io';
 
-function DecryptionRoute(req: any, res: any): void  {
+function DecryptionRoute(key: string, buf: Buffer): void   {
   
 }
 

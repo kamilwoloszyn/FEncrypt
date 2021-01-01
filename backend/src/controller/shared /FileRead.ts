@@ -1,7 +1,7 @@
 import fs = require('fs');
 
-function ReadFromStream() : Error{
-  const reader: fs.ReadStream = fs.createReadStream()
+function ParseDataFile(): Error | string{
+  return "dummy"
 }
 
-export default ReadFromStream
+export default ParseDataFile

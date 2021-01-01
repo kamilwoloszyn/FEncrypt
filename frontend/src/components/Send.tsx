@@ -37,7 +37,6 @@ export const Send: React.FC<Props> = (Props) => {
         case "encrypt": {
           const socket = socketIOClient(EndPoint);
           socket.on('connection', (sock: SocketIOClient.Socket) => {
-            
             sock.emit('data-client', {
               password: globalPassword.usedPassword,
               file: globalFile.usedFile,
