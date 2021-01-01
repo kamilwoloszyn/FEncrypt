@@ -1,7 +1,6 @@
 import express,{Express} from 'express';
 import bodyParser from 'body-parser';
 import * as  http from 'http';
-import * as socketio from 'socket.io';
 import { PORT, HOST } from './config/server';
 import DecryptionRoute  from './routes/decrypt';
 import EncryptionRoute  from './routes/encrypt';
@@ -16,20 +15,12 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.writeHead(200);
-  res.end("Default respond executed");
-})
-
-app.post('/encrypt', (req, res) => {
-  EncryptionRoute(req, res);
+  res.end("Default text/plain document");
 })
 
 io.on("connection", (socket: any) => {
     console.log("Socket.io")
     //handle later
-})
-
-app.post('/decrypt', (req, res) => {
-  DecryptionRoute(req, res);
 })
 
 const server = httpServer.listen(process.env.PORT || PORT, (() => {

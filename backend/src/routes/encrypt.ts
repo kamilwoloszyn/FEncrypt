@@ -1,3 +1,4 @@
+import * as socketio from 'socket.io';
 function EncryptionRoute(req: any, res: any): void {
   console.log(req.body);
 }
