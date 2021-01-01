@@ -1,6 +1,7 @@
 import express,{Express} from 'express';
 import bodyParser from 'body-parser';
 import * as  http from 'http';
+import * as socketio from 'socket.io';
 import { PORT, HOST } from './config/server';
 import DecryptionRoute  from './routes/decrypt';
 import EncryptionRoute  from './routes/encrypt';
@@ -14,12 +15,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  res.writeHead(200);
+  res.writeHead(200, { "content-type": "text/plain" });
   res.end("Default text/plain document");
 })
 
-io.on("connection", (socket: any) => {
-    console.log("Socket.io")
+io.on("connection", (socket: socketio.Socket) => {
+  console.log("User connected");
+    // socket.on("")
     //handle later
 })
 

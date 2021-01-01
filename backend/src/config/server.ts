@@ -1,4 +1,4 @@
-const PORT: number = 3000;
+const PORT: number = 3001;
 const HOST: string = "localhost";
 
 export {

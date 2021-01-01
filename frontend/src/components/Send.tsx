@@ -16,8 +16,8 @@ interface Props {
 interface SendWrapperProps { 
   Show: boolean;
 }
-const EncryptPoint = "http://localhost:3000/encrypt"
-const DecryptPoint = "http://localhost:3000/decrypt"
+const EncryptPoint = "http://localhost:3001/encrypt"
+const DecryptPoint = "http://localhost:3001/decrypt"
 const SendWrapper = styled.div<SendWrapperProps>`
 display:${({Show})=> Show? 'block':'none'}
 `
