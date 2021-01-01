@@ -1,4 +1,4 @@
-#FEncypt frontend & backend
+# FEncypt frontend & backend
 
 File encrypt & decrypt allows encrypt and decrypt files online. 
 
@@ -8,7 +8,8 @@ File encrypt & decrypt allows encrypt and decrypt files online.
 In order to run program simply open frontend and backend catalgos, and run :
 
 For frontend: 
-> npm start
+` npm start `
 
 For backend: 
-> npm run develop
+` npm run develop `
+
