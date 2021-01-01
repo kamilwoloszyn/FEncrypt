@@ -1,4 +1,4 @@
-function EncryptionRoute(req: any, res:any): void {
+function EncryptionRoute(req: any, res: any): void {
   console.log(req.body);
 }
 
