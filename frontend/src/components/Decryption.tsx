@@ -35,7 +35,7 @@ export const Decryption: React.FC<Props> = (Props) => {
   const [buttonDisabled, SetButtonDisabled] = useState<boolean>(true);
   const sendLink = "/send";
   const handleChangePassword = () => { 
-    if (passwordRef.current && passwordRef.current.value.length > 5) {
+    if (passwordRef.current && passwordRef.current.value.length > 5 && ivRef.current && ivRef.current.value.length> 10) {
       globalPassword.SetUsedPassword(passwordRef.current.value)
       SetButtonDisabled(false);
     } else { 
