@@ -53,7 +53,7 @@ export const Uploader: React.FC<Props> = (Props) => {
             <div className="modal-item">
               <form>
                 <label htmlFor="styleupload" ><img src={FileIcon} alt="fileicon"/></label>
-                <input type="file" name="filetoupload" accept="image/*,*.doc,text/plain " id="styleupload" ref={fileToUpload} onChange={HandleFileUpload}/>
+                <input type="file" name="filetoupload" accept="text/plain" id="styleupload" ref={fileToUpload} onChange={HandleFileUpload}/>
               </form>
             </div>
           <div className="modal-item">
