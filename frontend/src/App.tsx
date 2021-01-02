@@ -7,12 +7,13 @@ import { Decryption } from './components/Decryption';
 import { Send } from './components/Send';
 import { Col, Row,Container } from './styles/layout/layout';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { PasswordContext, ActionToDoContext, FileUploadContext } from './context/context';
+import { PasswordContext, ActionToDoContext, FileUploadContext, IVContext, IvState } from './context/context';
 
 export const App: React.FC = (ContainerOption) => {
   const [usedPassword, SetUsedPassword] = useState<string>("");
   const [usedContext, SetUsedContext] = useState<string>("");
-  const [usedFile, SetUsedFile] = useState<File| undefined>(undefined);
+  const [usedFile, SetUsedFile] = useState<File | undefined>(undefined);
+  const [usedIV, SetUsedIV] = useState<IvState>();
   return (
     <Container DisplayFlex={true}>
       <Row>
@@ -27,11 +28,14 @@ export const App: React.FC = (ContainerOption) => {
         <Router>
           <PasswordContext.Provider value={{ usedPassword, SetUsedPassword }}>
             <ActionToDoContext.Provider value={{ usedContext, SetUsedContext }}>
-              <FileUploadContext.Provider value={{usedFile,SetUsedFile}}>
-                <Route path="/" exact render={() => <Uploader Active={true} Show={true}/>} />
-                <Route path="/encrypt" render={() => <Encryption Active={true} Show={true}/>} />
-                <Route path="/decrypt" render={ ()=> <Decryption Active={true} Show={true} />}/>
-                <Route path="/send" render={() => <Send Active={true} Show={true} />}/>
+              <FileUploadContext.Provider value={{ usedFile, SetUsedFile }}>
+                <IVContext.Provider value={{usedIV,SetUsedIV}}>
+                  <Route path="/" exact render={() => <Uploader Active={true} Show={true}/>} />
+                  <Route path="/encrypt" render={() => <Encryption Active={true} Show={true}/>} />
+                  <Route path="/decrypt" render={ ()=> <Decryption Active={true} Show={true} />}/>
+                  <Route path="/send" render={() => <Send Active={true} Show={true} />}/>
+                </IVContext.Provider>
+                
               </FileUploadContext.Provider>
             </ActionToDoContext.Provider>
           </PasswordContext.Provider>       

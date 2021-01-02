@@ -7,12 +7,17 @@ export interface PasswordState {
 
 export interface ActionToDo {
   usedContext: string;
-  SetUsedContext: React.Dispatch<React.SetStateAction<string>>;
+  SetUsedContext: React.Dispatch<React.SetStateAction<string>>
 }
 
 export interface FileState {
   usedFile?: File,
-  SetUsedFile: React.Dispatch<React.SetStateAction<File | undefined>>;
+  SetUsedFile: React.Dispatch<React.SetStateAction<File | undefined>>
+}
+
+export interface IvState {
+  UsedIV: string,
+  SetUsedIV: React.Dispatch<React.SetStateAction<string>>
 }
 
 const initialState: PasswordState=  {
@@ -25,10 +30,16 @@ const initialStateActionToDo: ActionToDo = {
   SetUsedContext: ()=> console.warn("No SetUsedContext provided.")
 }
 
+const initialIvState: IvState = {
+  UsedIV: "",
+  SetUsedIV: ()=> console.warn("No SetUsedIV provided. ")
+}
+
 
 
 
 
 export const PasswordContext = createContext<PasswordState>(initialState)
 export const ActionToDoContext = createContext<ActionToDo>(initialStateActionToDo);
-export const FileUploadContext = createContext<FileState| undefined>(undefined);
+export const FileUploadContext = createContext<FileState | undefined>(undefined);
+export const IVContext = createContext<IvState>(initialIvState);

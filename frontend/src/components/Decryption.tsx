@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Col } from '../styles/layout/layout'; 
 import { useDispatch } from 'react-redux';
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState, ActionToDo, ActionToDoContext } from '../context/context';
+import { PasswordContext, PasswordState, ActionToDo, ActionToDoContext,IVContext, IvState } from '../context/context';
 import { Warning } from '../styles/modal';
 import '../styles/scss/shared/modal.scss';
 import '../styles/scss/shared/responsive.scss';
@@ -28,8 +28,10 @@ interface Props {
 export const Decryption: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   const passwordRef = useRef<HTMLInputElement>(null);
+  const ivRef = useRef<HTMLInputElement>(null);
   const globalPassword: PasswordState = useContext(PasswordContext);
   const globalAction: ActionToDo = useContext(ActionToDoContext); 
+  const globalIvContext: IvState = useContext(IVContext);
   const [buttonDisabled, SetButtonDisabled] = useState<boolean>(true);
   const sendLink = "/send";
   const handleChangePassword = () => { 
@@ -38,6 +40,11 @@ export const Decryption: React.FC<Props> = (Props) => {
       SetButtonDisabled(false);
     } else { 
       SetButtonDisabled(true);
+    }
+  }
+  const handleChangeIV = () => {
+    if (ivRef.current && ivRef.current.value.length > 10) {
+      globalIvContext.SetUsedIV(ivRef.current.value)
     }
   }
   useEffect(() => {
@@ -59,7 +66,13 @@ export const Decryption: React.FC<Props> = (Props) => {
              </FormLabelBlock>
              <FormInputBlock>
                    <input type="password" placeholder="Enter password here" className="form-input" ref={passwordRef} onChange={handleChangePassword}/>
-              </FormInputBlock>
+               </FormInputBlock>
+               <FormLabelBlock>
+                    <input type="text" placeholder="Enter obtained IV" className="form-input" ref={ivRef} onChange={}></input>
+               </FormLabelBlock>
+               <FormInputBlock>
+
+               </FormInputBlock>
                <Link to={buttonDisabled? '#': sendLink}> <OptionButton disabled={buttonDisabled} type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
              </form>
            </div>

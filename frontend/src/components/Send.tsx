@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import socketIOClient  from "socket.io-client";
 import {useDispatch} from 'react-redux'
 import { SetStep } from '../redux/action';
-import { PasswordContext, PasswordState, ActionToDoContext, ActionToDo, FileUploadContext } from '../context/context';
+import { PasswordContext, PasswordState, ActionToDoContext, ActionToDo, FileUploadContext, IVContext,IvState, FileState } from '../context/context';
 import { Col } from '../styles/layout/layout';
 import '../styles/scss/shared/modal.scss';
 
@@ -24,7 +24,8 @@ export const Send: React.FC<Props> = (Props) => {
   const dispatch = useDispatch();
   const globalPassword: PasswordState = useContext(PasswordContext);
   const globalAction: ActionToDo = useContext(ActionToDoContext);
-  const globalFile  = useContext(FileUploadContext);
+  const globalFile: FileState | undefined = useContext(FileUploadContext);
+  const globalIV: IvState = useContext(IVContext);
 
     useEffect(() => {
       dispatch(SetStep(2))
@@ -33,19 +34,33 @@ export const Send: React.FC<Props> = (Props) => {
   useEffect(() => {
     if (globalFile?.usedFile !== undefined && globalPassword.usedPassword && globalAction.usedContext) {
       const socket = socketIOClient(EndPoint);
-      socket.on('connection', (sock: SocketIOClient.Socket) => {
-        sock.emit('data-client', {
-          password: globalPassword.usedPassword,
-          file: globalFile.usedFile,
-          context: globalAction.usedContext
+      if (globalAction.usedContext == "decrypt") {
+        socket.on('connection', (sock: SocketIOClient.Socket) => {
+          sock.emit('data-client', {
+            password: globalPassword.usedPassword,
+            file: globalFile.usedFile,
+            context: globalAction.usedContext,
+            iv: globalIV.UsedIV
+          })
         })
-      })
+      } else { 
+        socket.on('connection', (sock: SocketIOClient.Socket) => {
+          sock.emit('data-client', {
+            password: globalPassword.usedPassword,
+            file: globalFile.usedFile,
+            context: globalAction.usedContext
+          })
+        })
+      }
+      
       
     } else { 
       console.log("Found empty object");
+      // For debugging only
       console.log(globalAction);
       console.log(globalFile);
       console.log(globalPassword);
+      console.log(globalIV.UsedIV)
       }
       },[globalAction,globalFile,globalPassword])
   
@@ -55,7 +70,7 @@ export const Send: React.FC<Props> = (Props) => {
       <SendWrapper Show={Props.Show}>
         <Col className="responsive-justify-center">
           <div className="modal-theme-default">
-            This data will be sent to server : <b> {globalPassword.usedPassword} {globalAction.usedContext}</b>
+            This data will be sent to server : <b> {globalPassword.usedPassword} {globalAction.usedContext} { globalIV.UsedIV}</b>
           </div>
         </Col>
       </SendWrapper>
