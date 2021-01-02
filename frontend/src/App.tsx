@@ -7,7 +7,7 @@ import { Decryption } from './components/Decryption';
 import { Send } from './components/Send';
 import { Col, Row,Container } from './styles/layout/layout';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { PasswordContext, ActionToDoContext, FileUploadContext, IVContext, IvState } from './context/context';
+import { PasswordContext, ActionToDoContext, FileUploadContext, IVContext } from './context/context';
 
 export const App: React.FC = (ContainerOption) => {
   const [usedPassword, SetUsedPassword] = useState<string>("");
