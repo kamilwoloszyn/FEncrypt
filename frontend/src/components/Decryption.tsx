@@ -68,10 +68,10 @@ export const Decryption: React.FC<Props> = (Props) => {
                    <input type="password" placeholder="Enter password here" className="form-input" ref={passwordRef} onChange={handleChangePassword}/>
                </FormInputBlock>
                <FormLabelBlock>
-                    <input type="text" placeholder="Enter obtained IV" className="form-input" ref={ivRef} onChange={}></input>
+                    <input type="text" placeholder="Enter obtained IV" className="form-input" ref={ivRef} onChange={handleChangeIV}></input>
                </FormLabelBlock>
                <FormInputBlock>
-
+                  Enter obtained IV from server
                </FormInputBlock>
                <Link to={buttonDisabled? '#': sendLink}> <OptionButton disabled={buttonDisabled} type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
              </form>
