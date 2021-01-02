@@ -34,7 +34,7 @@ export const Send: React.FC<Props> = (Props) => {
   useEffect(() => {
     if (globalFile?.usedFile !== undefined && globalPassword.usedPassword && globalAction.usedContext) {
       const socket = socketIOClient(EndPoint);
-      if (globalAction.usedContext == "decrypt" ) {
+      if (globalAction.usedContext === "decrypt" ) {
         socket.on('connection', (sock: SocketIOClient.Socket) => {
           sock.emit('data-client', {
             password: globalPassword.usedPassword,
@@ -62,7 +62,7 @@ export const Send: React.FC<Props> = (Props) => {
       console.log(globalPassword);
       console.log(globalIV.usedIV)
       }
-      },[globalAction,globalFile,globalPassword])
+      },[globalAction,globalFile,globalPassword,globalIV.usedIV])
   
 
   if (Props.Active) {
