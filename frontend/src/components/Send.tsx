@@ -25,7 +25,7 @@ export const Send: React.FC<Props> = (Props) => {
   const globalPassword: PasswordState = useContext(PasswordContext);
   const globalAction: ActionToDo = useContext(ActionToDoContext);
   const globalFile: FileState | undefined = useContext(FileUploadContext);
-  const globalIV: IvState = useContext(IVContext);
+  const globalIV: IvState|undefined = useContext(IVContext);
 
     useEffect(() => {
       dispatch(SetStep(2))
@@ -34,13 +34,13 @@ export const Send: React.FC<Props> = (Props) => {
   useEffect(() => {
     if (globalFile?.usedFile !== undefined && globalPassword.usedPassword && globalAction.usedContext) {
       const socket = socketIOClient(EndPoint);
-      if (globalAction.usedContext == "decrypt") {
+      if (globalAction.usedContext == "decrypt" ) {
         socket.on('connection', (sock: SocketIOClient.Socket) => {
           sock.emit('data-client', {
             password: globalPassword.usedPassword,
             file: globalFile.usedFile,
             context: globalAction.usedContext,
-            iv: globalIV.UsedIV
+            iv: globalIV.usedIV
           })
         })
       } else { 
@@ -60,7 +60,7 @@ export const Send: React.FC<Props> = (Props) => {
       console.log(globalAction);
       console.log(globalFile);
       console.log(globalPassword);
-      console.log(globalIV.UsedIV)
+      console.log(globalIV.usedIV)
       }
       },[globalAction,globalFile,globalPassword])
   
@@ -70,7 +70,7 @@ export const Send: React.FC<Props> = (Props) => {
       <SendWrapper Show={Props.Show}>
         <Col className="responsive-justify-center">
           <div className="modal-theme-default">
-            This data will be sent to server : <b> {globalPassword.usedPassword} {globalAction.usedContext} { globalIV.UsedIV}</b>
+            This data will be sent to server : <b> {globalPassword.usedPassword} {globalAction.usedContext} { globalIV.usedIV}</b>
           </div>
         </Col>
       </SendWrapper>

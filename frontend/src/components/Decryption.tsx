@@ -31,7 +31,7 @@ export const Decryption: React.FC<Props> = (Props) => {
   const ivRef = useRef<HTMLInputElement>(null);
   const globalPassword: PasswordState = useContext(PasswordContext);
   const globalAction: ActionToDo = useContext(ActionToDoContext); 
-  const globalIvContext: IvState = useContext(IVContext);
+  const globalIvContext: IvState| undefined = useContext(IVContext);
   const [buttonDisabled, SetButtonDisabled] = useState<boolean>(true);
   const sendLink = "/send";
   const handleChangePassword = () => { 

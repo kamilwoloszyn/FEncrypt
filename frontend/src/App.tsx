@@ -12,8 +12,9 @@ import { PasswordContext, ActionToDoContext, FileUploadContext, IVContext, IvSta
 export const App: React.FC = (ContainerOption) => {
   const [usedPassword, SetUsedPassword] = useState<string>("");
   const [usedContext, SetUsedContext] = useState<string>("");
+  const [usedIV, SetUsedIV] = useState<string>("");
   const [usedFile, SetUsedFile] = useState<File | undefined>(undefined);
-  const [usedIV, SetUsedIV] = useState<IvState>();
+  
   return (
     <Container DisplayFlex={true}>
       <Row>

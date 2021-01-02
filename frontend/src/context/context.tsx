@@ -16,7 +16,7 @@ export interface FileState {
 }
 
 export interface IvState {
-  UsedIV: string,
+  usedIV?: string,
   SetUsedIV: React.Dispatch<React.SetStateAction<string>>
 }
 
@@ -30,9 +30,8 @@ const initialStateActionToDo: ActionToDo = {
   SetUsedContext: ()=> console.warn("No SetUsedContext provided.")
 }
 
-const initialIvState: IvState = {
-  UsedIV: "",
-  SetUsedIV: ()=> console.warn("No SetUsedIV provided. ")
+const initialIVState: IvState = {
+  SetUsedIV: ()=> console.warn("No SetUsedIV provided")
 }
 
 
@@ -42,4 +41,4 @@ const initialIvState: IvState = {
 export const PasswordContext = createContext<PasswordState>(initialState)
 export const ActionToDoContext = createContext<ActionToDo>(initialStateActionToDo);
 export const FileUploadContext = createContext<FileState | undefined>(undefined);
-export const IVContext = createContext<IvState>(initialIvState);
+export const IVContext = createContext<IvState>(initialIVState);
