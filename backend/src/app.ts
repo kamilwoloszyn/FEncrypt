@@ -21,7 +21,6 @@ io.on("connection", function (socket : socketio.Socket) {
           } else { 
             //return iv is missing
           }
-           
         }
         break;
         default: {
