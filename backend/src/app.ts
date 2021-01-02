@@ -14,7 +14,21 @@ io.on("connection", function (socket : socketio.Socket) {
       switch (data.context) {
         case "encrypt": {
           EncryptionRoute(data.password, data.file).then((data) => {
-            let socketId = socket.id;
+            io.to(socketId).emit('server-response', {
+              statusCode: 200,
+              message: {
+                str: "All ok"
+              },
+              buffer: data.buf,
+              iv:data.iv
+            })
+          }).catch((err) => {
+            io.to(socketId).emit('server-response', {
+              statusCode: 500,
+              message: {
+                str: "Internal server error"
+              }
+            })
            })
         }
           break;
@@ -27,6 +41,13 @@ io.on("connection", function (socket : socketio.Socket) {
                   str: "All ok"
                 },
                 buffer: buf
+              })
+            }).catch((err) => {
+              io.to(socketId).emit('server-response', {
+                statusCode: 500,
+                message: {
+                  str: "Internal server error"
+                }
               })
             })
           } else {
@@ -64,3 +85,6 @@ io.on("connection", function (socket : socketio.Socket) {
 http.listen(process.env.PORT || PORT, function () {
    console.log(`App now listening at port *.${process.env.PORT || PORT}`)
 })
+
+//TODO:
+// - Move some code to routes (cleanup)
