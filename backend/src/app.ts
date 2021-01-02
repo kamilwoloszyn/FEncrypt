@@ -8,7 +8,7 @@ const http = require("http").Server(app);
 const io = require("socket.io")(http)
 
 io.on("connection", function (socket : socketio.Socket) { 
-  socket.on("data-client", (data: {file :string, password: string, context:string,iv?:string}) => {
+  socket.on("data-client", (data: {file :Buffer, password: string, context:string,iv?:string}) => {
     if (data.file.length > 0 && data.password.length > 5 && data.context.length > 0)  { 
       switch (data.context) { 
         case "encrypt": {
