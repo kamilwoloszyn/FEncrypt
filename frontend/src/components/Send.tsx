@@ -32,11 +32,11 @@ export const Send: React.FC<Props> = (Props) => {
     socket.on('server-response', ({ statusCode, message, buffer, iv }: { statusCode: number, message: { str: string }, buffer: Buffer, iv?: string}) => {
       SetResponseData({statusCode, message,buffer,iv });
       })
-    },[socket])
+    },[])
 
     useEffect(() => {
       dispatch(SetStep(2))
-    },[dispatch])
+    },[])
   
   useEffect(() => {
     if (globalFile?.usedFile !== undefined && globalPassword.usedPassword && globalAction.usedContext && globalIV.usedIV !== undefined) {
@@ -66,7 +66,7 @@ export const Send: React.FC<Props> = (Props) => {
       console.log(globalPassword);
       console.log(globalIV.usedIV)
       }
-      },[globalAction,globalFile,globalPassword,globalIV.usedIV,socket])
+      },[])
   
 
   if (Props.Active) {
@@ -87,7 +87,7 @@ export const Send: React.FC<Props> = (Props) => {
                 </tr>
                 <tr>
                   <td>Buffer</td>
-                  <td>{responseData?.buffer}</td>
+                  <td> [buffer]</td>
                 </tr>
                 <tr>
                   <td>IV</td>
