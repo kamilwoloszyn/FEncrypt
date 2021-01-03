@@ -1,4 +1,4 @@
-import React,{useEffect,useContext} from "react";
+import React,{useEffect,useContext, useState} from "react";
 import styled from 'styled-components'
 import socketIOClient  from "socket.io-client";
 import {useDispatch} from 'react-redux'
@@ -25,7 +25,14 @@ export const Send: React.FC<Props> = (Props) => {
   const globalPassword: PasswordState = useContext(PasswordContext);
   const globalAction: ActionToDo = useContext(ActionToDoContext);
   const globalFile: FileState | undefined = useContext(FileUploadContext);
-  const globalIV: IvState|undefined = useContext(IVContext);
+  const globalIV: IvState | undefined = useContext(IVContext);
+  const [responseData, SetResponseData] = useState<{ statusCode: number, message: { str: string }, buffer: Buffer, iv?: string }  | undefined>(undefined);
+  const socket = socketIOClient(EndPoint);
+  useEffect(() => {
+    socket.on('server-response', ({ statusCode, message, buffer, iv }: { statusCode: number, message: { str: string }, buffer: Buffer, iv?: string}) => {
+      SetResponseData({statusCode, message,buffer,iv });
+      })
+    },[socket])
 
     useEffect(() => {
       dispatch(SetStep(2))
@@ -33,7 +40,6 @@ export const Send: React.FC<Props> = (Props) => {
   
   useEffect(() => {
     if (globalFile?.usedFile !== undefined && globalPassword.usedPassword && globalAction.usedContext) {
-      const socket = socketIOClient(EndPoint);
       if (globalAction.usedContext === "decrypt" ) {
         socket.on('connection', (sock: SocketIOClient.Socket) => {
           sock.emit('data-client', {
@@ -62,7 +68,7 @@ export const Send: React.FC<Props> = (Props) => {
       console.log(globalPassword);
       console.log(globalIV.usedIV)
       }
-      },[globalAction,globalFile,globalPassword,globalIV.usedIV])
+      },[globalAction,globalFile,globalPassword,globalIV.usedIV,socket])
   
 
   if (Props.Active) {
@@ -70,8 +76,29 @@ export const Send: React.FC<Props> = (Props) => {
       <SendWrapper Show={Props.Show}>
         <Col className="responsive-justify-center">
           <div className="modal-theme-default">
-            This data will be sent to server : <b> {globalPassword.usedPassword} {globalAction.usedContext} { globalIV.usedIV}</b>
-          </div>
+            Data received from server : 
+             <table>
+              <tbody>
+                <tr>
+                  <td>Status Code</td>
+                  <td>{responseData?.statusCode}</td>
+                </tr>
+                <tr>
+                  <td>Status text</td>
+                  <td>{responseData?.message.str}</td>
+                </tr>
+                <tr>
+                  <td>Buffer</td>
+                  <td>{responseData?.buffer}</td>
+                </tr>
+                <tr>
+                  <td>IV</td>
+                  <td>{responseData?.iv}</td>
+                </tr>
+              </tbody>
+           
+             </table>
+             </div>
         </Col>
       </SendWrapper>
   )
