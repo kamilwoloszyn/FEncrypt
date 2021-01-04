@@ -4,9 +4,9 @@ const alghoritm = `aes-256-cbc`;
 
 export const Decrypt = (key: string, encryptedData: Buffer, ivStr: string): Promise<Buffer> => {
   return new Promise<Buffer>((resolve, reject) => {
-    const salt = crypto.scryptSync(key, 'salt', 32);
-    const iv = Buffer.from(ivStr, 'hex');
-    const decipher = crypto.createCipheriv(alghoritm, salt, iv);
+    const salt: Buffer= crypto.scryptSync(key, 'salt', 32);
+    const iv: Buffer = Buffer.from(ivStr, 'hex');
+    const decipher: crypto.Cipher = crypto.createCipheriv(alghoritm, salt, iv);
     let decrypted: Buffer = decipher.update(encryptedData);
     decrypted = Buffer.concat([decrypted, decipher.final()]);
     resolve(decrypted);
