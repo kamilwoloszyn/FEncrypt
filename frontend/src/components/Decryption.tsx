@@ -34,19 +34,24 @@ export const Decryption: React.FC<Props> = (Props) => {
   const globalIvContext: IvState| undefined = useContext(IVContext);
   const [buttonDisabled, SetButtonDisabled] = useState<boolean>(true);
   const sendLink = "/send";
-  const handleChangePassword = () => { 
-    if (passwordRef.current && passwordRef.current.value.length > 5 && ivRef.current && ivRef.current.value.length> 10) {
+  const handleChangePassword = () => {
+    if (passwordRef.current?.value !== undefined && passwordRef.current.value.length > 0) {
       globalPassword.SetUsedPassword(passwordRef.current.value)
+    }
+  }
+  const handleChangeIV = () => {
+    if (ivRef.current) {
+      globalIvContext.SetUsedIV(ivRef.current.value)
+    }
+  }
+  useEffect(() => {
+    if (globalPassword.usedPassword.length > 5 && globalIvContext.usedIV?.length == 32) {
       SetButtonDisabled(false);
     } else { 
       SetButtonDisabled(true);
     }
-  }
-  const handleChangeIV = () => {
-    if (ivRef.current && ivRef.current.value.length > 10) {
-      globalIvContext.SetUsedIV(ivRef.current.value)
-    }
-  }
+  },[globalPassword.usedPassword,globalIvContext.usedIV])
+
   useEffect(() => {
     dispatch(SetStep(1)); 
     globalAction.SetUsedContext("decrypt");
@@ -68,10 +73,10 @@ export const Decryption: React.FC<Props> = (Props) => {
                    <input type="password" placeholder="Enter password here" className="form-input" ref={passwordRef} onChange={handleChangePassword}/>
                </FormInputBlock>
                <FormLabelBlock>
-                    <input type="text" placeholder="Enter obtained IV" className="form-input" ref={ivRef} onChange={handleChangeIV}></input>
+                  Enter obtained IV from server
                </FormLabelBlock>
                <FormInputBlock>
-                  Enter obtained IV from server
+                  <input type="text" placeholder="Enter obtained IV" className="form-input" ref={ivRef} onChange={handleChangeIV}></input>
                </FormInputBlock>
                <Link to={buttonDisabled? '#': sendLink}> <OptionButton disabled={buttonDisabled} type="button" customColor={"#fff"} hoverColor={"#e63c3c"} borderColor={"#e63c3c"}>Decrypt !</OptionButton> </Link>    
              </form>
@@ -81,7 +86,8 @@ export const Decryption: React.FC<Props> = (Props) => {
            <Warning show={buttonDisabled} className="modal-theme-error"> 
             For security reasons : 
                   <ul>
-                    <li>Password should contain at least 6 characters</li>
+                      <li>Password should contain at least 6 characters</li>
+                      <li>IV has bad length</li>
                   </ul>
             </Warning>
          </Col>
